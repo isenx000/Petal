@@ -15,6 +15,7 @@ Petal is an updated version of Discord-bot, originally developed by Corwin Dev. 
     <img src="https://img.shields.io/badge/Request-Feature-0E8A16" alt="Request Feature" />
   </a>
 </p>
+
 ### Disclaimer
 > **Please do not claim this project as your own.** Petal is a fork of the original project created by [Dotwood Media](https://github.com/DotwoodMedia) and [Graphix Development](https://github.com/GraphixDevelopment), later maintained by [Corwin Dev](https://github.com/CorwinDev). This fork is independently modified, updated, and maintained by **Isen**, with full credit to the original creators.
 
