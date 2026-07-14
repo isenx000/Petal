@@ -6,6 +6,7 @@
 <br />
 
 <h3 align="center">Petal</h3>
+
 Petal is an updated version of [Discord-bot](https://github.com/CorwinDev/Discord-Bot), originally developed by [Corwin Dev](https://github.com/CorwinDev). It is a powerful multipurpose Discord bot with over 400 commands, featuring moderation, tickets, radio, games, giveaways, economy, leveling, invites, server customization, utilities, suggestions, server stats, and more. After the original project was discontinued and its source code was made public, Petal was created to continue its development with updates and improvements.
 
 <br />
