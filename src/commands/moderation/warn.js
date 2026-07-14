@@ -1,7 +1,5 @@
-const Discord = require('discord.js');
+const { } = require('discord.js');
 
-const Schema = require("../../database/models/warnings");
-const Case = require("../../database/models/warnCase");
 module.exports = async (client, interaction, args) => {
     const perms = await client.checkUserPerms({
         flags: [Discord.PermissionsBitField.Flags.ManageMessages],

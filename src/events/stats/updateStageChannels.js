@@ -1,6 +1,4 @@
-const Discord = require('discord.js');
-
-const Schema = require("../../database/models/stats");
+const {} = require('discord.js');
 
 module.exports = async (client, channel, guild) => {
     if (channel.type ==  Discord.ChannelType.GuildStageVoice) {

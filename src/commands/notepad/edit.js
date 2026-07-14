@@ -1,6 +1,4 @@
-const Discord = require('discord.js');
-
-const Schema = require("../../database/models/notes");
+const {} = require('discord.js');
 
 module.exports = async (client, interaction, args) => {
     let id = interaction.options.getString('id');

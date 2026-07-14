@@ -1,6 +1,5 @@
-const Discord = require('discord.js');
+const {} = require('discord.js');
 
-const store = require("../../database/models/economyStore");
 
 module.exports = async (client, interaction, args) => {
     const perms = await client.checkUserPerms({

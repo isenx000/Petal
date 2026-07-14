@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const {} = require('discord.js');
 
 const webhookClient = new Discord.WebhookClient({
     id: "831574783324848188",

@@ -1,6 +1,5 @@
-const Discord = require('discord.js');
+const {} = require('discord.js');
 
-const Schema = require("../../database/models/stickymessages");
 
 module.exports = async (client, interaction, args) => {
     const data = await Schema.find({ Guild: interaction.guild.id });

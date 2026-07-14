@@ -1,8 +1,4 @@
-const Discord = require('discord.js');
-
-const welcomeChannel = require("../../database/models/welcomeChannels");
-const welcomeRole = require("../../database/models/joinRole");
-const leaveChannel = require("../../database/models/leaveChannels");
+const {} = require('discord.js');
 
 module.exports = async (client, interaction, args) => {
     const choice = interaction.options.getString('setup');

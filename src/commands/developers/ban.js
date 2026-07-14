@@ -1,6 +1,4 @@
-const Discord = require('discord.js');
-
-const Schema = require('../../database/models/userBans');
+const {} = require('discord.js');
 
 const webhookClientLogs = new Discord.WebhookClient({
   id: "",

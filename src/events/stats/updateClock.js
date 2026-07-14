@@ -1,8 +1,6 @@
-const Discord = require('discord.js');
+const {} = require('discord.js');
 const moment = require('moment');
 const tz = require('moment-timezone');
-
-const Schema = require("../../database/models/stats");
 
 module.exports = async (client) => {
     try {

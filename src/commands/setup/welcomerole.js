@@ -1,6 +1,4 @@
-const Discord = require('discord.js');
-
-const welcomeRole = require("../../database/models/joinRole");
+const {} = require('discord.js');
 
 module.exports = async (client, interaction, args) => {
     const role = interaction.options.getRole('role');

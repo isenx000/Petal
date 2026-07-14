@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const {} = require('discord.js');
 const { decode } = require('html-entities');
 const axios = require('axios');
 const cheerio = require('cheerio');

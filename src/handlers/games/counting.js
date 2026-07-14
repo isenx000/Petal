@@ -1,7 +1,5 @@
-const Discord = require("discord.js");
+const {} = require("discord.js");
 
-const countSchema = require("../../database/models/countChannel");
-const count = require("../../database/models/count");
 const math = require('mathjs');
 
 module.exports = async (client) => {

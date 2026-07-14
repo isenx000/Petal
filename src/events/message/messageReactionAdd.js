@@ -1,6 +1,4 @@
-const Discord = require("discord.js");
-
-const StarBoard = require("../../database/models/starboardChannels");
+const {} = require("discord.js");
 
 module.exports = async (client, reaction, user) => {
   if (reaction.message.partial) await reaction.message.fetch().catch(() => { });

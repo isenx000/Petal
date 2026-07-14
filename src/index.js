@@ -1,7 +1,10 @@
-const Discord = require('discord.js');
+const {} = require('discord.js')
 const chalk = require('chalk');
+
 require('dotenv').config('./.env');
+
 const axios = require('axios');
+
 // Check if is up to date
 const { version } = require('.././package.json');
 axios.get('https://api.github.com/repos/CorwinDev/Discord-Bot/releases/latest').then(res => {
@@ -15,7 +18,9 @@ axios.get('https://api.github.com/repos/CorwinDev/Discord-Bot/releases/latest').
 
 const webhook = require("./config/webhooks.json");
 const config = require("./config/bot.js");
+
 const webHooksArray = ['startLogs', 'shardLogs', 'errorLogs', 'dmLogs', 'voiceLogs', 'serverLogs', 'serverLogs2', 'commandLogs', 'consoleLogs', 'warnLogs', 'voiceErrorLogs', 'creditLogs', 'evalLogs', 'interactionLogs'];
+
 // Check if .env webhook_id and webhook_token are set
 if (process.env.WEBHOOK_ID && process.env.WEBHOOK_TOKEN) {
     for (const webhookName of webHooksArray) {

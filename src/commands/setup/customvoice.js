@@ -1,6 +1,5 @@
-const Discord = require('discord.js');
+const {} = require('discord.js');
 
-const voiceSchema = require("../../database/models/voice");
 
 module.exports = async (client, interaction, args) => {
     const category = interaction.options.getChannel('category');

@@ -1,6 +1,4 @@
-const Discord = require('discord.js');
-
-const Schema = require('../../database/models/functions');
+const {} = require('discord.js');
 
 module.exports = async (client, interaction, args) => {
     const boolean = interaction.options.getBoolean('active');

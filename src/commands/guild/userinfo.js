@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const {} = require('discord.js');
 const axios = require("axios");
 
 const model = require('../../database/models/badge');

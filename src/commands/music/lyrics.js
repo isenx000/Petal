@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const {} = require('discord.js');
 const lyricsFinder = require("lyrics-finder");
 
 module.exports = async (client, interaction, args) => {

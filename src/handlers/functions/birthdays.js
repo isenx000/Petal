@@ -1,7 +1,3 @@
-const Schema = require("../../database/models/birthday");
-const Devs = require("../../database/models/developers");
-const birthdayChannel = require("../../database/models/birthdaychannels");
-
 module.exports = (client) => {
     const checkBirthdays = async () => {
         const now = new Date();

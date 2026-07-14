@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const {} = require('discord.js');
 const Topgg = require(`@top-gg/sdk`);
 const moment = require("moment");
 require("moment-duration-format");

@@ -1,5 +1,4 @@
-const Discord = require('discord.js');
-const Schema = require("../../database/models/customCommandAdvanced");
+const {} = require('discord.js');
 
 module.exports = async (client, interaction, args) => {
     const cmdname = interaction.options.getString('command');

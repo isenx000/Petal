@@ -1,6 +1,4 @@
-const discord = require('discord.js');
-
-const roleSchema = require("../../database/models/joinRole");
+const {} = require('discord.js');
 
 module.exports = async (client, member) => {
     const data = await roleSchema.findOne({ Guild: member.guild.id })

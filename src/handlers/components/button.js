@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const {} = require('discord.js');
 
 module.exports = (client) => {
     client.buttonReactions = async function (id, reactions) {

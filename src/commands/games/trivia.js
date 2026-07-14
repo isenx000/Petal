@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const {} = require('discord.js');
 const fetch = require("node-fetch");
 const { decode } = require('html-entities');
 

@@ -1,11 +1,6 @@
-const Discord = require('discord.js');
+const {} = require('discord.js');
 const Captcha = require("@haileybot/captcha-generator");
 
-const reactionSchema = require("../../database/models/reactionRoles");
-const banSchema = require("../../database/models/userBans");
-const verify = require("../../database/models/verify");
-const Commands = require("../../database/models/customCommand");
-const CommandsSchema = require("../../database/models/customCommandAdvanced");
 module.exports = async (client, interaction) => {
     // Commands
     if (interaction.isCommand() || interaction.isUserContextMenuCommand()) {

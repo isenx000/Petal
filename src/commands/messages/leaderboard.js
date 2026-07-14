@@ -1,6 +1,4 @@
-const Discord = require('discord.js');
-
-const Schema = require("../../database/models/messages");
+const {} = require('discord.js');
 
 module.exports = async (client, interaction, args) => {
     const rawLeaderboard = await Schema.find({ Guild: interaction.guild.id }).sort(([['Messages', 'descending']]));

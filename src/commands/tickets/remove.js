@@ -1,7 +1,5 @@
-const Discord = require('discord.js');
+const {} = require('discord.js');
 
-const ticketSchema = require("../../database/models/tickets");
-const ticketChannels = require("../../database/models/ticketChannels");
 
 module.exports = async (client, interaction, args) => {
     const data = await ticketSchema.findOne({ Guild: interaction.guild.id });

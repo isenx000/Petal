@@ -1,6 +1,4 @@
-const discord = require('discord.js');
-
-const ticketChannels = require("../../database/models/ticketChannels");
+const {} = require('discord.js');
 
 module.exports = async (client, channel) => {
     let types = {

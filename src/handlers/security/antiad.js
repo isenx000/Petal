@@ -1,7 +1,4 @@
-const Discord = require("discord.js");
-
-const Schema = require("../../database/models/functions");
-const Schema2 = require("../../database/models/channelList");
+const {} = require("discord.js");
 
 module.exports = (client) => {
     client.on(Discord.Events.MessageCreate, async (message) => {

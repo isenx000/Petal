@@ -1,6 +1,4 @@
-const model = require('../../database/models/badge');
-const Schema = require('../../database/models/profile');
-const CreditsSchema = require("../../database/models/votecredits");
+
 
 module.exports = async (client, interaction, args) => {
 

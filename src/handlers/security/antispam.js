@@ -1,6 +1,4 @@
-const Discord = require('discord.js');
-
-const Schema = require("../../database/models/functions");
+const {} = require('discord.js');
 
 const usersMap = new Map();
 const LIMIT = 5;

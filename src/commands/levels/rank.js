@@ -1,8 +1,5 @@
-const Discord = require('discord.js');
+const {} = require('discord.js');
 const Canvacord = require("canvacord");
-
-const Functions = require("../../database/models/functions");
-const Schema = require("../../database/models/levels");
 
 module.exports = async (client, interaction, args) => {
     const data = await Functions.findOne({ Guild: interaction.guild.id });

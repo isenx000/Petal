@@ -1,8 +1,6 @@
-const Discord = require('discord.js');
+const {} = require('discord.js');
 const ms = require("ms");
 
-const Schema = require("../../database/models/economy");
-const Schema2 = require("../../database/models/economyTimeout");
 
 module.exports = async (client, interaction, args) => {
 

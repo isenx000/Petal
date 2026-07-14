@@ -1,5 +1,4 @@
-const Discord = require('discord.js');
-const Schema = require("../../database/models/reminder");
+const {} = require('discord.js');
 const ms = require("ms");
 
 module.exports = async (client, interaction, args) => {

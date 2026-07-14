@@ -1,6 +1,5 @@
-const Discord = require('discord.js');
+const {} = require('discord.js');
 
-const ticketSchema = require("../../database/models/tickets");
 
 module.exports = async (client, interaction, args) => {
     const category = interaction.options.getChannel('category');

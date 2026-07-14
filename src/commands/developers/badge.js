@@ -1,6 +1,6 @@
-const Discord = require('discord.js');
+const {} = require('discord.js');
 
-const model = require('../../database/models/badge');
+
 
 const webhookClientLogs = new Discord.WebhookClient({
     id: "",

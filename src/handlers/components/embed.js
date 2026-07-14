@@ -1,12 +1,4 @@
-const Discord = require('discord.js');
-
-/** 
- * Easy to send errors because im lazy to do the same things :p
- * @param {String} text - Message which is need to send
- * @param {TextChannel} channel - A Channel to send error
- */
-
-const Schema = require("../../database/models/functions");
+const {} = require('discord.js');
 
 module.exports = (client) => {
     client.templateEmbed = function () {

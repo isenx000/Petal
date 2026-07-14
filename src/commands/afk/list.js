@@ -1,6 +1,4 @@
-const Discord = require('discord.js');
-
-const Schema = require('../../database/models/afk');
+const { } = require('discord.js');
 
 module.exports = async (client, interaction, args) => {
     const rawboard = await Schema.find({ Guild: interaction.guild.id })

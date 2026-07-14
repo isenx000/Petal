@@ -1,42 +1,4 @@
-const discord = require('discord.js');
-const schemaFiles = [
-    "afk",
-    "customCommandAdvanced",
-    "birthday",
-    "blacklist",
-    "channelList",
-    "chatbot-channel",
-    "count",
-    "countChannel",
-    "customCommand",
-    "economy",
-    "economyTimeout",
-    "family",
-    "functions",
-    "guessNumber",
-    "guessWord",
-    "levelChannels",
-    "levelRewards",
-    "logChannels",
-    "messages",
-    "music",
-    "notes",
-    "privatechannels",
-    "reactionRoles",
-    "reviewChannels",
-    "stats",
-    "suggestionChannels",
-    "ticketChannels",
-    "ticketMessage",
-    "tickets",
-    "verify",
-    "voice",
-    "voiceChannels",
-    "warnings",
-    "wordsnake",
-    "messageRewards",
-]
-const schemas = schemaFiles.map(file => require(`../../database/models/${file}`));
+const {} = require('discord.js');
 
 module.exports = async (client, guild) => {
     const kickLogs = new discord.WebhookClient({

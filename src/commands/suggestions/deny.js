@@ -1,6 +1,5 @@
-const Discord = require('discord.js');
+const {} = require('discord.js');
 
-const Schema = require("../../database/models/suggestionChannels");
 
 module.exports = async (client, interaction, args) => {
     const perms = await client.checkUserPerms({

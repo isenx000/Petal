@@ -1,12 +1,9 @@
-const discord = require('discord.js');
+const {} = require('discord.js');
 const jsdom = require('jsdom');
 const fs = require('fs');
 const purify = require('dompurify');
 const he = require('he');
 const static = require('../../assets/utils/static');
-
-const ticketSchema = require("../../database/models/tickets");
-const ticketChannels = require("../../database/models/ticketChannels");
 
 module.exports = async (client) => {
 

@@ -1,9 +1,5 @@
-const Discord = require('discord.js');
+const {} = require('discord.js');
 
-const Counting = require("../../database/models/countChannel");
-const GTN = require("../../database/models/guessNumber");
-const GTW = require("../../database/models/guessWord");
-const WordSnake = require("../../database/models/wordsnake");
 
 module.exports = async (client, interaction, args) => {
     const choice = interaction.options.getString('setup');

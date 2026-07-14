@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const {} = require('discord.js');
 const { truncate } = require('fs/promises');
 const { decode } = require('html-entities');
 const fetch = require("node-fetch");

@@ -1,6 +1,4 @@
-const Discord = require('discord.js');
-
-const Schema = require("../../database/models/wordsnake");
+const {} = require('discord.js');
 
 module.exports = async (client) => {
   client.on(Discord.Events.MessageCreate, async (message) => {

@@ -1,16 +1,4 @@
-const Discord = require("discord.js");
-
-const Functions = require("../../database/models/functions");
-const afk = require("../../database/models/afk");
-const chatBotSchema = require("../../database/models/chatbot-channel");
-const messagesSchema = require("../../database/models/messages");
-const messageSchema = require("../../database/models/levelMessages");
-const messageRewards = require("../../database/models/messageRewards");
-const Schema = require("../../database/models/stickymessages");
-const levelRewards = require("../../database/models/levelRewards");
-const levelLogs = require("../../database/models/levelChannels");
-const Commands = require("../../database/models/customCommand");
-const CommandsSchema = require("../../database/models/customCommandAdvanced");
+const {} = require("discord.js");
 const fetch = require("node-fetch");
 
 /**

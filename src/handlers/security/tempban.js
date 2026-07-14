@@ -1,5 +1,3 @@
-const Schema = require("../../database/models/tempban");
-
 module.exports = (client) => {
     const checkForExpired = async () => {
         const now = new Date()

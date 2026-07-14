@@ -1,7 +1,5 @@
-const Discord = require('discord.js');
+const {} = require('discord.js');
 const generator = require('generate-password');
-
-const Schema = require("../../database/models/notes");
 
 module.exports = async (client, interaction, args) => {
 

@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const {} = require('discord.js');
 const chalk = require('chalk');
 const { random } = require('mathjs');
 

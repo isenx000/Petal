@@ -1,5 +1,4 @@
-const Discord = require('discord.js');
-const mongoose = require('mongoose');
+const {} = require('discord.js');
 
 module.exports = async (client, interaction, args) => {
     client.simpleEmbed({

@@ -1,5 +1,4 @@
-const Discord = require('discord.js');
-const Schema = require("../../database/models/music");
+const {} = require('discord.js');
 
 module.exports = async (client, interaction, args) => {
     const webhookClientLogs = new Discord.WebhookClient({

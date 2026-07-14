@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const {} = require('discord.js');
 const ms = require('ms');
 
 let timeLength = 50000;

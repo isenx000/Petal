@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const {} = require('discord.js');
 const isgd = require('isgd');
 
 module.exports = async (client, interaction, args) => {

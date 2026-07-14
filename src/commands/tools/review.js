@@ -1,6 +1,6 @@
-const Discord = require('discord.js');
+const {} = require('discord.js');
 
-const Schema = require("../../database/models/reviewChannels");
+
 
 module.exports = async (client, interaction, args) => {
     const stars = interaction.options.getNumber('stars');

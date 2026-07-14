@@ -1,9 +1,4 @@
-const discord = require('discord.js');
-
-const leaveSchema = require("../../database/models/leaveChannels");
-const messages = require("../../database/models/inviteMessages");
-const invitedBy = require("../../database/models/inviteBy");
-const invites = require("../../database/models/invites");
+const {} = require('discord.js');
 
 module.exports = async (client, member) => {
     const messageData = await messages.findOne({ Guild: member.guild.id });

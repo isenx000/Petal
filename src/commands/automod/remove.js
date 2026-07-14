@@ -1,6 +1,4 @@
-const Discord = require('discord.js');
-
-const Schema = require("../../database/models/blacklist");
+const {} = require('discord.js');
 
 module.exports = async (client, interaction, args) => {
     const word = interaction.options.getString('word');

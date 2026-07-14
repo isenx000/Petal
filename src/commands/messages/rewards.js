@@ -1,6 +1,4 @@
-const Discord = require('discord.js');
-
-const Schema = require("../../database/models/messageRewards");
+const {} = require('discord.js');
 
 module.exports = async (client, interaction, args) => {
     const rawLeaderboard = await Schema.find({ Guild: interaction.guild.id });

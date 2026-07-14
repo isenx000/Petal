@@ -1,6 +1,4 @@
-const Discord = require('discord.js');
-
-const Schema = require("../../database/models/verify");
+const {} = require('discord.js');
 
 module.exports = async (client, interaction, args) => {
     const perms = await client.checkUserPerms({

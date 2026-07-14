@@ -1,7 +1,4 @@
-const Discord = require('discord.js');
-
-const Schema = require("../../database/models/boostChannels");
-const Schema2 = require("../../database/models/boostMessage");
+const {} = require('discord.js');
 
 module.exports = async (client, member) => {
     try {

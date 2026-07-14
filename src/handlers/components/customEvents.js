@@ -1,5 +1,4 @@
-const Schema = require("../../database/models/logChannels");
-const Discord = require('discord.js');
+const {} = require('discord.js');
 
 module.exports = async (client) => {
     client.getLogs = async function (guildId) {

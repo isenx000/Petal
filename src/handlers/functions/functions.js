@@ -1,8 +1,5 @@
-const Discord = require('discord.js');
+const {} = require('discord.js');
 const fetch = require("node-fetch");
-
-const Functions = require("../../database/models/functions");
-const VoiceSchema = require("../../database/models/voiceChannels");
 
 module.exports = async (client) => {
     //----------------------------------------------------------------//

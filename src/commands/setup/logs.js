@@ -1,8 +1,5 @@
-const Discord = require('discord.js');
+const {} = require('discord.js');
 
-const logs = require("../../database/models/logChannels");
-const boostLogs = require("../../database/models/boostChannels");
-const levelLogs = require("../../database/models/levelChannels");
 
 module.exports = async (client, interaction, args) => {
     const choice = interaction.options.getString('setup');

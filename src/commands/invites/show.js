@@ -1,6 +1,4 @@
-const Discord = require('discord.js');
-
-const Schema = require("../../database/models/invites");
+const {} = require('discord.js');
 
 module.exports = async (client, interaction, args) => {
     let user = interaction.options.getUser('user') || interaction.user;

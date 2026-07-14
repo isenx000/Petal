@@ -1,6 +1,5 @@
-const Discord = require('discord.js');
+const {} = require('discord.js');
 
-const Schema = require("../../database/models/guessWord");
 
 module.exports = async (client, interaction, args) => {
     let wordList = client.config.wordList;

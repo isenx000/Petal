@@ -1,6 +1,4 @@
-const discord = require('discord.js');
-
-const levels = require("../../database/models/levels");
+const {} = require('discord.js');
 
 module.exports = async (client) => {
     client.setXP = async function (userId, guildId, xp) {

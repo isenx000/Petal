@@ -1,6 +1,4 @@
-const Discord = require('discord.js');
-const voiceSchema = require("../../database/models/voice");
-const channelSchema = require("../../database/models/voiceChannels");
+const {} = require('discord.js');
 
 module.exports = (client, oldState, newState) => {
     if (oldState.channelId == newState.channelId) {

@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const {} = require('discord.js');
 
 module.exports = (client, error) => {
     if (error.message == undefined) {

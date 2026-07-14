@@ -1,8 +1,5 @@
-const Discord = require('discord.js');
+const {} = require('discord.js');
 
-const Schema = require("../../database/models/economy");
-const store = require("../../database/models/economyStore");
-const items = require("../../database/models/economyItems");
 module.exports = async (client, interaction, args) => {
     const storeData = await store.find({ Guild: interaction.guild.id });
     if (storeData.length == 0) return client.errNormal({
