@@ -1,6 +1,16 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const { Canvas } = require("canvacord");
 const {} = require('discord.js');
-module.exports = async (client, interaction, args) => {
+
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('clyde')
+        .setDescription('Clyde'),
+    async execute(client, interaction, args) {
+
 
     const clydeMessage = interaction.options.getString('text');
 
@@ -10,6 +20,5 @@ module.exports = async (client, interaction, args) => {
 
     const embed = client.templateEmbed().setImage("attachment://clyde.png");
     interaction.editReply({ files: [attachment], embeds: [embed] });
-}
-
- 
+    }
+};

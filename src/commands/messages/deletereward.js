@@ -1,6 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('messages-deletereward')
+        .setDescription('Messages Deletereward'),
+    async execute(client, interaction, args) {
+
     let messages = interaction.options.getNumber('amount');
 
     const perms = await client.checkUserPerms({
@@ -33,6 +42,5 @@ module.exports = async (client, interaction, args) => {
             }, interaction);
         }
     })
-}
-
- 
+    }
+};

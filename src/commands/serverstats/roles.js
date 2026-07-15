@@ -1,7 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('roles')
+        .setDescription('Roles'),
+    async execute(client, interaction, args) {
 
-module.exports = async (client, interaction, args) => {
     var channelName = await client.getTemplate(interaction.guild);
     channelName = channelName.replace(`{emoji}`, "👔")
     channelName = channelName.replace(`{name}`, `Roles: ${interaction.guild.roles.cache.size.toLocaleString()}`)
@@ -39,7 +47,5 @@ module.exports = async (client, interaction, args) => {
             type: 'editreply'
         }, interaction);
     })
-
-}
-
- 
+    }
+};

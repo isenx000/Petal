@@ -1,7 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('unclaim')
+        .setDescription('Unclaim'),
+    async execute(client, interaction, args) {
 
-module.exports = async (client, interaction, args) => {
     const data = await ticketSchema.findOne({ Guild: interaction.guild.id });
     const ticketData = await ticketChannels.findOne({ Guild: interaction.guild.id, channelID: interaction.channel.id })
 
@@ -66,6 +74,5 @@ module.exports = async (client, interaction, args) => {
             }
         }
     }
-}
-
- 
+    }
+};

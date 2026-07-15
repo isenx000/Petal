@@ -1,8 +1,17 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
-module.exports = async (client, interaction) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('emojify')
+        .setDescription('Emojify'),
+    async execute(client, interaction, args) {
 
-    const args = interaction.options.getString('text');
+
+    // const args = interaction.options.getString('text');
 
     if (args.length > 4096) return client.errNormal({ error: "Your emojify text cannot be longer than 4096 characters", type: 'editreply' }, interaction);
 
@@ -38,7 +47,5 @@ module.exports = async (client, interaction) => {
         desc: `${text}`,
         type: 'editreply'
     }, interaction)
-
-}
-
- 
+    }
+};

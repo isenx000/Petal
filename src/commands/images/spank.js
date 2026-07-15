@@ -1,7 +1,16 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 // const DIG = require("discord-image-generation");
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('spank')
+        .setDescription('Spank'),
+    async execute(client, interaction, args) {
+
     const user = interaction.options.getUser('user') || interaction.user;
 
     let avatar = interaction.user.displayAvatarURL({ dynamic: false, size: 1024, extension: 'png' });
@@ -11,6 +20,5 @@ module.exports = async (client, interaction, args) => {
 
     const embed = client.templateEmbed().setImage("attachment://spank.png");
     interaction.editReply({ files: [attach], embeds: [embed] });
-}
-
- 
+    }
+};

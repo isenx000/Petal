@@ -1,7 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('withdraw')
+        .setDescription('Withdraw'),
+    async execute(client, interaction, args) {
 
-module.exports = async (client, interaction, args) => {
 
     let amount = interaction.options.getNumber('amount');
     let user = interaction.user;
@@ -38,5 +46,5 @@ module.exports = async (client, interaction, args) => {
             client.errNormal({ text: `You don't have any money to withdraw!`, type: 'editreply' }, interaction);
         }
     })
-}
- 
+    }
+};

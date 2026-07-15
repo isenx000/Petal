@@ -1,7 +1,7 @@
 const { EmbedBuilder, ActivityType, WebhookClient } = require('discord.js');
 const config = require('../../config/bot')
 
-const { colors } = config.colors;
+const colors = config.colors;
 
 module.exports = async (client) => {
     const startLogs = new WebhookClient({

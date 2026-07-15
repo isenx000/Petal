@@ -1,5 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
 
-module.exports = async (client, interaction, args) => {
+
+
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('kill')
+        .setDescription('Kill'),
+    async execute(client, interaction, args) {
+
 
     const user = interaction.options.getUser('user');
 
@@ -199,7 +209,5 @@ module.exports = async (client, interaction, args) => {
     ];
 
     client.embed({ title: `🔫・Kill`, desc: `${kills[Math.floor(Math.random() * kills.length)]}`, type: 'editreply' }, interaction)
-
-}
-
-     
+    }
+};

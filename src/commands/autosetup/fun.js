@@ -1,6 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('autosetup-fun')
+        .setDescription('Autosetup Fun'),
+    async execute(client, interaction, args) {
+
     const choice = interaction.options.getString('setup');
 
     if (choice == "birthdays") {
@@ -47,5 +56,5 @@ module.exports = async (client, interaction, args) => {
             client.createChannelSetup(StarBoard, ch, interaction)
         })
     }
-}
-
+    }
+};

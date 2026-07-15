@@ -1,7 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('invites-add')
+        .setDescription('Invites Add'),
+    async execute(client, interaction, args) {
 
-module.exports = async (client, interaction, args) => {
     let user = interaction.options.getUser('user');
     let amount = interaction.options.getNumber('amount');
 
@@ -39,6 +47,5 @@ module.exports = async (client, interaction, args) => {
         ],
         type: 'editreply'
     }, interaction);
-}
-
- 
+    }
+};

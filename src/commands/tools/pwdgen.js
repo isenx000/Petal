@@ -1,7 +1,16 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 // const generator = require('generate-password');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('pwdgen')
+        .setDescription('Pwdgen'),
+    async execute(client, interaction, args) {
+
 
     const password = generator.generate({
         length: 12,
@@ -26,7 +35,5 @@ module.exports = async (client, interaction, args) => {
             }
         ]
     }, interaction.user)
-
-}
-
- 
+    }
+};

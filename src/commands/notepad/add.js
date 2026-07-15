@@ -1,7 +1,16 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 // const generator = require('generate-password');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('notepad-add')
+        .setDescription('Notepad Add'),
+    async execute(client, interaction, args) {
+
 
     const code = generator.generate({
         length: 4,
@@ -24,6 +33,5 @@ module.exports = async (client, interaction, args) => {
             client.succNormal({ text: "Note has been added! \`/notepad notes\` to see all your notes", type: 'editreply' }, interaction);
         }
     })
-}
-
- 
+    }
+};

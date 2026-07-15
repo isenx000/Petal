@@ -1,6 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('qrcode')
+        .setDescription('Qrcode'),
+    async execute(client, interaction, args) {
+
 
     const text = interaction.options.getString('text');
 
@@ -9,7 +18,5 @@ module.exports = async (client, interaction, args) => {
         image: `https://api.qrserver.com/v1/create-qr-code/?size=1024x1024&data=${text.replace(new RegExp(" ", "g"), "%20")}`,
         type: 'editreply'
     }, interaction)
-
-}
-
- 
+    }
+};

@@ -1,13 +1,22 @@
+const { SlashCommandBuilder, WebhookClient } = require('discord.js');
+
 // const {} = require('discord.js');
 
 
 
-const webhookClientLogs = new Discord.WebhookClient({
+const webhookClientLogs = new WebhookClient({
     id: "",
     token: "",
 });
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('badge')
+        .setDescription('Badge'),
+    async execute(client, interaction, args) {
+
     const badgeFlags = {
         DEVELOPER: client.emotes.badges.developer,
         EVENT: client.emotes.badges.event,
@@ -140,6 +149,5 @@ module.exports = async (client, interaction, args) => {
             embeds: [embedLogs],
         });
     }
-}
-
- 
+    }
+};

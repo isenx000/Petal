@@ -1,8 +1,16 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 // const axios = require("axios");
 
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('inviteinfo')
+        .setDescription('Inviteinfo'),
+    async execute(client, interaction, args) {
 
-module.exports = async (client, interaction, args) => {
   const invite = interaction.options.getString('invite');
 
   const verifyFlags = {
@@ -78,33 +86,32 @@ module.exports = async (client, interaction, args) => {
   })
 }
 
-const toUnix = (snowflake) => {
-  const EPOCH = 1420070400000;
-  const BINARY = idToBinary(snowflake.toString()).toString(2).padStart(64, '0');
-  let timestamp = parseInt(((parseInt(BINARY.substring(0, 42), 2) + EPOCH).toString().substring(0, (parseInt(BINARY.substring(0, 42), 2) + EPOCH).toString().length - 3)));
-  let timestampms = parseInt(BINARY.substring(0, 42), 2) + EPOCH;
-  const date = new Date(timestampms);
-  const data = {
-    timestamp,
-    timestampms,
-    date
-  }
-  return data
-}
+// const toUnix = (snowflake) => {
+//   const EPOCH = 1420070400000;
+//   const BINARY = idToBinary(snowflake.toString()).toString(2).padStart(64, '0');
+//   let timestamp = parseInt(((parseInt(BINARY.substring(0, 42), 2) + EPOCH).toString().substring(0, (parseInt(BINARY.substring(0, 42), 2) + EPOCH).toString().length - 3)));
+//   let timestampms = parseInt(BINARY.substring(0, 42), 2) + EPOCH;
+//   const date = new Date(timestampms);
+//   const data = {
+//     timestamp,
+//     timestampms,
+//     date
+//   }
+//   return data
+// }
 
-const idToBinary = (num) => {
-  let bin = '';
-  let high = parseInt(num.slice(0, -10)) || 0;
-  let low = parseInt(num.slice(-10));
-  while (low > 0 || high > 0) {
-    bin = String(low & 1) + bin;
-    low = Math.floor(low / 2);
-    if (high > 0) {
-      low += 5000000000 * (high % 2);
-      high = Math.floor(high / 2);
-    }
-  }
-  return bin;
-}
-
-   
+// const idToBinary = (num) => {
+//   let bin = '';
+//   let high = parseInt(num.slice(0, -10)) || 0;
+//   let low = parseInt(num.slice(-10));
+//   while (low > 0 || high > 0) {
+//     bin = String(low & 1) + bin;
+//     low = Math.floor(low / 2);
+//     if (high > 0) {
+//       low += 5000000000 * (high % 2);
+//       high = Math.floor(high / 2);
+//     }
+//   }
+//   return bin;
+//     }
+};

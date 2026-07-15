@@ -1,6 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('levels-createreward')
+        .setDescription('Levels Createreward'),
+    async execute(client, interaction, args) {
+
     let level = interaction.options.getNumber('level');
     let role = interaction.options.getRole('role');
 
@@ -38,6 +47,5 @@ module.exports = async (client, interaction, args) => {
             }, interaction);
         }
     })
-}
-
- 
+    }
+};

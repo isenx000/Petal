@@ -1,7 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('skipword')
+        .setDescription('Skipword'),
+    async execute(client, interaction, args) {
 
-module.exports = async (client, interaction, args) => {
     let wordList = client.config.wordList;
 
     Schema.findOne({ Guild: interaction.guild.id, Channel: interaction.channel.id }, async (err, data) => {
@@ -33,6 +41,5 @@ module.exports = async (client, interaction, args) => {
             }, interaction)
         }
     })
-}
-
- 
+    }
+};

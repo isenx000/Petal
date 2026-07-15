@@ -1,6 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
 
 
-module.exports = async (client, interaction, args) => {
+
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('profile')
+        .setDescription('Profile'),
+    async execute(client, interaction, args) {
+
 
     const badgeFlags = {
         DEVELOPER: client.emotes.badges.developer,
@@ -171,6 +180,5 @@ module.exports = async (client, interaction, args) => {
             return client.errNormal({ error: "No profile found! Open a profile with /profile create", type:'editreply' }, interaction);
         }
     })
-}
-
- 
+    }
+};

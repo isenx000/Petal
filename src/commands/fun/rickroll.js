@@ -1,6 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('rickroll')
+        .setDescription('Rickroll'),
+    async execute(client, interaction, args) {
+
 
     const roll = [
         "Never gonna give you up",
@@ -17,6 +26,5 @@ module.exports = async (client, interaction, args) => {
             image: `https://i.pinimg.com/originals/88/82/bc/8882bcf327896ab79fb97e85ae63a002.gif`,
             type: 'editreply',
         }, interaction);
-}
-
- 
+    }
+};

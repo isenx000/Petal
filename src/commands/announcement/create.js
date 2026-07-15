@@ -1,6 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('announcement-create')
+        .setDescription('Announcement Create'),
+    async execute(client, interaction, args) {
+
     const message = interaction.options.getString('message');
     const channel = interaction.options.getChannel('channel');
 
@@ -19,6 +28,5 @@ module.exports = async (client, interaction, args) => {
         ],
         type: 'editreply'
     }, interaction);
-}
-
- 
+    }
+};

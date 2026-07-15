@@ -1,6 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('setup-fun')
+        .setDescription('Setup Fun'),
+    async execute(client, interaction, args) {
+
     const choice = interaction.options.getString('setup');
     const channel = interaction.options.getChannel('channel');
     
@@ -13,6 +22,5 @@ module.exports = async (client, interaction, args) => {
     };
 
     client.createChannelSetup(choices[choice], channel, interaction);
-}
-
- 
+    }
+};

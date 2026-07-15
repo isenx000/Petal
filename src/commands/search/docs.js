@@ -1,7 +1,16 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 // const axios = require('axios');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('docs')
+        .setDescription('Docs'),
+    async execute(client, interaction, args) {
+
 
     let name = interaction.options.getString('name');
 
@@ -22,6 +31,5 @@ module.exports = async (client, interaction, args) => {
         }
     }).catch((err) => {
     })
-}
-
- 
+    }
+};

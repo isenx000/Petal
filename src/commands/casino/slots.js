@@ -1,8 +1,17 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 const slotItems = ["🍇", "🍉", "🍊", "🍎", "🍓", "🍒"];
 // const {} = require('discord.js');
 // const ms = require("parse-ms");
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('slots')
+        .setDescription('Slots'),
+    async execute(client, interaction, args) {
+
     let user = interaction.user;
 
     Schema.findOne({ Guild: interaction.guild.id, User: user.id }, async (err, data) => {
@@ -71,4 +80,5 @@ module.exports = async (client, interaction, args) => {
             client.errNormal({ error: `You has no ${client.emotes.economy.coins}!`, type: 'editreply' }, interaction);
         }
     })
-}
+    }
+};

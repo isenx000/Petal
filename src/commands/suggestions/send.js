@@ -1,7 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('send')
+        .setDescription('Send'),
+    async execute(client, interaction, args) {
 
-module.exports = async (client, interaction, args) => {
     const suggestionQuery = interaction.options.getString('suggestion');
 
     const data = await Schema.findOne({ Guild: interaction.guild.id });
@@ -48,6 +56,5 @@ module.exports = async (client, interaction, args) => {
             type: 'editreply'
         }, interaction);
     }
-}
-
- 
+    }
+};

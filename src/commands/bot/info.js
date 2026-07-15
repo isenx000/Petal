@@ -1,8 +1,17 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 // const moment = require("moment");
 // require("moment-duration-format");
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('bot-info')
+        .setDescription('Bot Info'),
+    async execute(client, interaction, args) {
+
     const promises = [
         client.shard.broadcastEval(client => client.guilds.cache.size),
         client.shard.broadcastEval(client => client.guilds.cache.reduce((acc, guild) => acc + guild.memberCount, 0)),
@@ -137,6 +146,5 @@ module.exports = async (client, interaction, args) => {
                 type: 'editreply'
             }, interaction)
         })
-}
-
- 
+    }
+};

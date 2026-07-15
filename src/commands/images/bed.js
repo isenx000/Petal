@@ -1,7 +1,16 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 // const { Canvas } = require("canvacord");
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('bed')
+        .setDescription('Bed'),
+    async execute(client, interaction, args) {
+
 
     const member = interaction.options.getUser('user');
 
@@ -12,5 +21,5 @@ module.exports = async (client, interaction, args) => {
     let attach = new Discord.AttachmentBuilder(img, { name: "bed.png" });
     const embed = client.templateEmbed().setImage("attachment://bed.png");
     interaction.editReply({ files: [attach], embeds: [embed] });
-}
-
+    }
+};

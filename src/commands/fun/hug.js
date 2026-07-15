@@ -1,6 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const axios = require('axios');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('hug')
+        .setDescription('Hug'),
+    async execute(client, interaction, args) {
+
 
     const user = interaction.options.getUser('user');
     const url = 'https://some-random-api.com/animu/hug';
@@ -20,6 +29,5 @@ module.exports = async (client, interaction, args) => {
         image: `${data.link}`,
         type: 'editreply'
     }, interaction);
-}
-
-     
+    }
+};

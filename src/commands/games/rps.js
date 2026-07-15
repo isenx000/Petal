@@ -1,6 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('rps')
+        .setDescription('Rps'),
+    async execute(client, interaction, args) {
+
     const option = interaction.options.getString("option");
 
     let options = ["rock", "paper", "scissors"];
@@ -67,6 +76,5 @@ module.exports = async (client, interaction, args) => {
             }, interaction);
             break;
     }
-}
-
- 
+    }
+};

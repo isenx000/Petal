@@ -1,11 +1,20 @@
+const { SlashCommandBuilder, WebhookClient } = require('discord.js');
+
 // const {} = require('discord.js');
 
-const webhookClientLogs = new Discord.WebhookClient({
+const webhookClientLogs = new WebhookClient({
   id: "",
   token: "",
 });
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('developers-ban')
+        .setDescription('Developers Ban'),
+    async execute(client, interaction, args) {
+
     const boolean = interaction.options.getBoolean('new');
     const member = interaction.options.getUser('user');
   
@@ -82,5 +91,5 @@ module.exports = async (client, interaction, args) => {
             }
         })
     }
-}
-
+    }
+};

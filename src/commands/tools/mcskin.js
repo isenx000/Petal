@@ -1,6 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('mcskin')
+        .setDescription('Mcskin'),
+    async execute(client, interaction, args) {
+
 
     const name = interaction.options.getString('name');
 
@@ -11,7 +20,5 @@ module.exports = async (client, interaction, args) => {
         image: `https://minotar.net/armor/body/${name}/700.png`,
         type: 'editreply'
     }, interaction)
-
-}
-
- 
+    }
+};

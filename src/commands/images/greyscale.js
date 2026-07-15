@@ -1,6 +1,16 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 // const { Canvas } = require("canvacord");
-module.exports = async (client, interaction, args) => {
+
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('greyscale')
+        .setDescription('Greyscale'),
+    async execute(client, interaction, args) {
+
 
     const member = interaction.options.getUser('user');
 
@@ -12,5 +22,5 @@ module.exports = async (client, interaction, args) => {
     const embed = client.templateEmbed();
     embed.setImage("attachment://greyscale.png");
     interaction.editReply({ files: [attach], embeds: [embed] })
-}
-
+    }
+};

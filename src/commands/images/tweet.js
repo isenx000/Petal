@@ -1,6 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const fetch = require("node-fetch");
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('tweet')
+        .setDescription('Tweet'),
+    async execute(client, interaction, args) {
+
 
     const user = interaction.user.username;
     const text = interaction.options.getString('text');
@@ -20,7 +29,5 @@ module.exports = async (client, interaction, args) => {
             }).catch({})
     }
     catch { }
-
-}
-
- 
+    }
+};

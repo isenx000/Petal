@@ -1,7 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('propose')
+        .setDescription('Propose'),
+    async execute(client, interaction, args) {
 
-module.exports = async (client, interaction, args) => {
 
     const target = interaction.options.getUser('user');
     const author = interaction.user;
@@ -134,6 +142,5 @@ module.exports = async (client, interaction, args) => {
             }, interaction);
         });
     }
-}
-
- 
+    }
+};

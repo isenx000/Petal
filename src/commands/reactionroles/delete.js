@@ -1,6 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('reactionroles-delete')
+        .setDescription('Reactionroles Delete'),
+    async execute(client, interaction, args) {
+
     const category = interaction.options.getString('category');
 
     Schema.findOne({ Guild: interaction.guild.id, Category: category }, async (err, data) => {
@@ -16,6 +25,5 @@ module.exports = async (client, interaction, args) => {
             type: 'editreply'
         }, interaction);
     })
-}
-
- 
+    }
+};

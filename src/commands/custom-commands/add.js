@@ -1,6 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('custom-commands-add')
+        .setDescription('Custom Commands Add'),
+    async execute(client, interaction, args) {
+
     const cmdname = interaction.options.getString('command');
     const cmdresponce = interaction.options.getString('text');
 
@@ -110,7 +119,5 @@ module.exports = async (client, interaction, args) => {
             })
         }
     })
-
-}
-
- 
+    }
+};

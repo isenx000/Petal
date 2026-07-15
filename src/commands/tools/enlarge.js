@@ -1,6 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('enlarge')
+        .setDescription('Enlarge'),
+    async execute(client, interaction, args) {
+
 
     const emoji = interaction.options.getString('emoji');
     const parsedEmoji = Discord.parseEmoji(emoji)
@@ -16,6 +25,5 @@ module.exports = async (client, interaction, args) => {
     } else {
         client.errNormal({ error: "Please supply a valid emoji!", type: 'editreply' }, interaction)
     }
-}
-
- 
+    }
+};

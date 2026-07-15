@@ -1,7 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('tier')
+        .setDescription('Tier'),
+    async execute(client, interaction, args) {
 
-module.exports = async (client, interaction, args) => {
     let tier = {
         "TIER_1": `1`,
         "TIER_2": `2`,
@@ -46,7 +54,5 @@ module.exports = async (client, interaction, args) => {
             type: 'editreply'
         }, interaction);
     })
-
-}
-
- 
+    }
+};

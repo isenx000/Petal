@@ -1,6 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('linkschannel')
+        .setDescription('Linkschannel'),
+    async execute(client, interaction, args) {
+
     const type = interaction.options.getString('type');
     const channel = interaction.options.getChannel('channel');
 
@@ -73,6 +82,5 @@ module.exports = async (client, interaction, args) => {
             }
         })
     }
-}
-
- 
+    }
+};

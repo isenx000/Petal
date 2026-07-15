@@ -1,7 +1,16 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 // const translate = require('@iamtraction/google-translate');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('translate')
+        .setDescription('Translate'),
+    async execute(client, interaction, args) {
+
 
     const language = interaction.options.getString('language');
     const text = interaction.options.getString('text');
@@ -32,6 +41,5 @@ module.exports = async (client, interaction, args) => {
             type: 'editreply'
         }, interaction);
     })
-}
-
- 
+    }
+};

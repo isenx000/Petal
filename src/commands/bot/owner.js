@@ -1,6 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('owner')
+        .setDescription('Owner'),
+    async execute(client, interaction, args) {
+
     client.embed({
         title: `📘・Owner information`,
         desc: `____________________________`,
@@ -27,6 +36,5 @@ module.exports = async (client, interaction, args) => {
         }],
         type: 'editreply'
     }, interaction)
-}
-
- 
+    }
+};

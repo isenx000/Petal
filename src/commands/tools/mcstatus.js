@@ -1,7 +1,16 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 // const fetch = require("node-fetch");
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('mcstatus')
+        .setDescription('Mcstatus'),
+    async execute(client, interaction, args) {
+
 
     const ip = interaction.options.getString('ip');
 
@@ -34,6 +43,5 @@ module.exports = async (client, interaction, args) => {
                 ], type: 'editreply'
             }, interaction)
         }).catch({})
-}
-
- 
+    }
+};

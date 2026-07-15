@@ -1,4 +1,15 @@
-module.exports = async (client, interaction, args) => {
+const { SlashCommandBuilder } = require('discord.js');
+
+
+
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('xmas')
+        .setDescription('Xmas'),
+    async execute(client, interaction, args) {
+
     let today = new Date();
      let xmas = new Date(today.getFullYear(), 11, 24);
      if (today.getMonth() == 11 && today.getDate() > 24) {
@@ -13,5 +24,5 @@ module.exports = async (client, interaction, args) => {
          desc: `${days} days until Christmas`,
      type: 'editreply'
  }, interaction)
-}
-
+    }
+};

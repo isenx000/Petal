@@ -1,6 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('notepad-edit')
+        .setDescription('Notepad Edit'),
+    async execute(client, interaction, args) {
+
     let id = interaction.options.getString('id');
     let note = interaction.options.getString('note');
 
@@ -15,6 +24,5 @@ module.exports = async (client, interaction, args) => {
             client.errNormal({ error: `No note found!`, type: 'editreply' }, interaction);
         }
     })
-}
-
- 
+    }
+};

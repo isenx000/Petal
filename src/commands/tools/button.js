@@ -1,6 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('tools-button')
+        .setDescription('Tools Button'),
+    async execute(client, interaction, args) {
+
 
     const url = interaction.options.getString('url');
     const text = interaction.options.getString('text');
@@ -21,7 +30,5 @@ module.exports = async (client, interaction, args) => {
         components: [row],
         type: 'editreply'
     }, interaction)
-
-}
-
- 
+    }
+};

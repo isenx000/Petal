@@ -1,6 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('blackjack')
+        .setDescription('Blackjack'),
+    async execute(client, interaction, args) {
+
     let user = interaction.user;
 
     Schema.findOne({ Guild: interaction.guild.id, User: user.id }, async (err, data) => {
@@ -322,4 +331,5 @@ module.exports = async (client, interaction, args) => {
             client.errNormal({ error: `You don't have any ${client.emotes.economy.coins}!`, type: 'editreply' }, interaction);
         }
     })
-}
+    }
+};

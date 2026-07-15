@@ -1,6 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const { } = require('discord.js');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('autosetup-games')
+        .setDescription('Autosetup Games'),
+    async execute(client, interaction, args) {
+
     const choice = interaction.options.getString('setup');
 
     if (choice == "counting") {
@@ -62,5 +71,5 @@ module.exports = async (client, interaction, args) => {
             client.createChannelSetup(WordSnake, ch, interaction)
         })
     }
-}
-
+    }
+};

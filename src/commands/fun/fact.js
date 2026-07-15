@@ -1,7 +1,16 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 // const request = require('request');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('fact')
+        .setDescription('Fact'),
+    async execute(client, interaction, args) {
+
 
     var url = 'https://uselessfacts.jsph.pl/random.json?language=en'
 
@@ -15,6 +24,5 @@ module.exports = async (client, interaction, args) => {
             type: 'editreply',
         }, interaction);
     })
-}
-
- 
+    }
+};

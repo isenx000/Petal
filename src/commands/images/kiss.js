@@ -1,7 +1,16 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 // const DIG = require("discord-image-generation");
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('kiss')
+        .setDescription('Kiss'),
+    async execute(client, interaction, args) {
+
 
     const member = interaction.options.getUser('user');
 
@@ -13,5 +22,5 @@ module.exports = async (client, interaction, args) => {
     embed.setImage('attachment://kiss.png')
     embed.setDescription(`**${interaction.user.username}** kissed **${member.username}**`)
     interaction.editReply({ files: [attach], embeds: [embed] })
-}
-
+    }
+};

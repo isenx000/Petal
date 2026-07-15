@@ -1,6 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('guild-members')
+        .setDescription('Guild Members'),
+    async execute(client, interaction, args) {
+
   const members = await interaction.guild.members.fetch();
 
   client.embed({
@@ -25,6 +34,5 @@ module.exports = async (client, interaction, args) => {
     ],
     type: 'editreply'
   }, interaction)
-}
-
-   
+    }
+};

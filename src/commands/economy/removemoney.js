@@ -1,7 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('removemoney')
+        .setDescription('Removemoney'),
+    async execute(client, interaction, args) {
 
-module.exports = async (client, interaction, args) => {
     const perms = await client.checkUserPerms({
         flags: [Discord.PermissionsBitField.Flags.Administrator],
         perms: [Discord.PermissionsBitField.Flags.Administrator]
@@ -49,5 +57,5 @@ module.exports = async (client, interaction, args) => {
             }
         }, 500)
     })
-}
- 
+    }
+};

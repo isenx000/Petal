@@ -1,7 +1,16 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 // const ms = require("ms");
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('remind')
+        .setDescription('Remind'),
+    async execute(client, interaction, args) {
+
 
     const time = interaction.options.getString('time');
     const text = interaction.options.getString('message');
@@ -47,7 +56,5 @@ module.exports = async (client, interaction, args) => {
 
         let deleted = await Schema.findOneAndDelete({ Text: text, User: interaction.user.id, endTime: endtime });
     }, endtime - new Date().getTime());
-
-}
-
- 
+    }
+};

@@ -1,8 +1,17 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 // const fetch = require("node-fetch");
 // const { decode } = require('html-entities');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('trivia')
+        .setDescription('Trivia'),
+    async execute(client, interaction, args) {
+
     const getRandomString = (length) => {
         const randomChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
         let result = '';
@@ -364,6 +373,5 @@ module.exports = async (client, interaction, args) => {
             }
         });
     })
-}
-
- 
+    }
+};

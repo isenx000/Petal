@@ -1,6 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('family-delete')
+        .setDescription('Family Delete'),
+    async execute(client, interaction, args) {
+
 
     const row = new Discord.ActionRowBuilder()
         .addComponents(
@@ -54,6 +63,5 @@ module.exports = async (client, interaction, args) => {
             console.log(err)
             client.errNormal({ error: "Time's up! Cancelled backup loading!", type: 'editreply' }, interaction);
         });
-}
-
- 
+    }
+};

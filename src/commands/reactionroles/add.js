@@ -1,6 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('reactionroles-add')
+        .setDescription('Reactionroles Add'),
+    async execute(client, interaction, args) {
+
     const category = interaction.options.getString('category');
     const role = interaction.options.getRole('role');
     const emoji = interaction.options.getString('emoji');
@@ -57,6 +66,5 @@ module.exports = async (client, interaction, args) => {
             type: 'editreply'
         }, interaction);
     })
-}
-
- 
+    }
+};

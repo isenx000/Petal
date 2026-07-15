@@ -1,6 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('donate')
+        .setDescription('Donate'),
+    async execute(client, interaction, args) {
+
     let row = new Discord.ActionRowBuilder()
         .addComponents(
             new Discord.ButtonBuilder()
@@ -17,6 +26,5 @@ module.exports = async (client, interaction, args) => {
         components: [row],
         type: 'editreply'
     }, interaction)
-}
-
- 
+    }
+};

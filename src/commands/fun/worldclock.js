@@ -1,5 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
 
-module.exports = async (client, interaction, args) => {
+
+
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('worldclock')
+        .setDescription('Worldclock'),
+    async execute(client, interaction, args) {
+
     var gmt = new Date().toLocaleString("en-US", {
         timeZone: "Europe/London",
     });
@@ -74,6 +84,5 @@ module.exports = async (client, interaction, args) => {
         ],
         type: 'editreply'
     }, interaction)
-}
-
- 
+    }
+};

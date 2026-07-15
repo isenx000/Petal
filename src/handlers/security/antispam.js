@@ -1,4 +1,4 @@
-// const {} = require('discord.js');
+const { Events } = require('discord.js');
 
 const usersMap = new Map();
 const LIMIT = 5;
@@ -6,7 +6,7 @@ const TIME = 10000;
 const DIFF = 3000;
 
 module.exports = async (client) => {
-    client.on(Discord.Events.MessageCreate, async (message) => {
+    client.on(Events.MessageCreate, async (message) => {
         if (message.author.bot || message.channel.type === Discord.ChannelType.DM) return;
 
         Schema.findOne({ Guild: message.guild.id }, async (err, data) => {

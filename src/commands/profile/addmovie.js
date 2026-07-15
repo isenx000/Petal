@@ -1,6 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
 
 
-module.exports = async (client, interaction, args) => {
+
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('addmovie')
+        .setDescription('Addmovie'),
+    async execute(client, interaction, args) {
+
 
     const movie = interaction.options.getString('movie');
 
@@ -32,7 +41,5 @@ module.exports = async (client, interaction, args) => {
             return client.errNormal({ error: "No profile found! Open a profile with createprofile", type:'editreply' }, interaction);
         }
     })
-
-}
-
- 
+    }
+};

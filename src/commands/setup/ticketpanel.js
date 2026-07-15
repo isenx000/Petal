@@ -1,7 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('setup-ticketpanel')
+        .setDescription('Setup Ticketpanel'),
+    async execute(client, interaction, args) {
 
-module.exports = async (client, interaction, args) => {
     const name = interaction.options.getString('name');
     const description = interaction.options.getString('description');
 
@@ -35,6 +43,5 @@ module.exports = async (client, interaction, args) => {
             }, interaction);
         }
     })
-}
-
- 
+    }
+};

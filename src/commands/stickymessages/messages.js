@@ -1,7 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('messages')
+        .setDescription('Messages'),
+    async execute(client, interaction, args) {
 
-module.exports = async (client, interaction, args) => {
     const data = await Schema.find({ Guild: interaction.guild.id });
 
     if (data) {
@@ -23,6 +31,5 @@ module.exports = async (client, interaction, args) => {
             type: 'editreply' 
         }, interaction)
     }
-}
-
- 
+    }
+};

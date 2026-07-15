@@ -1,6 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('announcement-edit')
+        .setDescription('Announcement Edit'),
+    async execute(client, interaction, args) {
+
     const message = interaction.options.getString('message');
     const messageId = interaction.options.getString('id');
 
@@ -16,6 +25,5 @@ module.exports = async (client, interaction, args) => {
         text: `Announcement has been edit successfully!`,
         type: 'ephemeraledit'
     }, interaction);
-}
-
- 
+    }
+};

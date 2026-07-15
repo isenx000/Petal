@@ -1,6 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('snake')
+        .setDescription('Snake'),
+    async execute(client, interaction, args) {
+
     const getRandomString = (length) => {
         const randomChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
         let result = '';
@@ -354,6 +363,5 @@ module.exports = async (client, interaction, args) => {
             }
         });
     })
-}
-
- 
+    }
+};

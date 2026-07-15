@@ -1,7 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('information')
+        .setDescription('Information'),
+    async execute(client, interaction, args) {
 
-module.exports = async (client, interaction, args) => {
     ticketChannels.findOne({ Guild: interaction.guild.id, channelID: interaction.channel.id }, async (err, ticketData) => {
         if (ticketData) {
             ticketSchema.findOne({ Guild: interaction.guild.id }, async (err, data) => {
@@ -74,6 +82,5 @@ module.exports = async (client, interaction, args) => {
             })
         }
     })
-}
-
- 
+    }
+};

@@ -1,6 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('ping')
+        .setDescription('Ping'),
+    async execute(client, interaction, args) {
+
     client.simpleEmbed({
         desc: `${client.emotes.animated.loading} Calculating ping...`,
         type: 'editreply'
@@ -37,6 +46,5 @@ module.exports = async (client, interaction, args) => {
             }, interaction)
         })
     })
-}
-
- 
+    }
+};

@@ -1,6 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('warnings')
+        .setDescription('Warnings'),
+    async execute(client, interaction, args) {
+
     const perms = await client.checkUserPerms({
         flags: [Discord.PermissionsBitField.Flags.ManageMessages],
         perms: [Discord.PermissionsBitField.Flags.ManageMessages]
@@ -48,5 +57,5 @@ module.exports = async (client, interaction, args) => {
             }, interaction)
         }
     })
-}
-
+    }
+};

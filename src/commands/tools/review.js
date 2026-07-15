@@ -1,8 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('review')
+        .setDescription('Review'),
+    async execute(client, interaction, args) {
 
-
-module.exports = async (client, interaction, args) => {
     const stars = interaction.options.getNumber('stars');
     const message = interaction.options.getString('message') || 'Not given';
 
@@ -66,6 +73,5 @@ module.exports = async (client, interaction, args) => {
             }, interaction)
         }
     })
-}
-
- 
+    }
+};

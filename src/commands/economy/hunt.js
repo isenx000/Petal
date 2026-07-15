@@ -1,7 +1,16 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 // const ms = require("ms");
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('hunt')
+        .setDescription('Hunt'),
+    async execute(client, interaction, args) {
+
 
     const rand = (min, max) => {
         return Math.floor(Math.random() * (max - min)) + min;
@@ -52,7 +61,5 @@ module.exports = async (client, interaction, args) => {
             }
         }
     })
-
-}
-
- 
+    }
+};

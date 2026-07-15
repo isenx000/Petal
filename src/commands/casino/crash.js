@@ -1,6 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('crash')
+        .setDescription('Crash'),
+    async execute(client, interaction, args) {
+
     let user = interaction.user;
     var result = Math.ceil(Math.random() * 12);
 
@@ -166,4 +175,5 @@ module.exports = async (client, interaction, args) => {
             client.errNormal({ error: `You has no ${client.emotes.economy.coins}!`, type: 'editreply' }, interaction);
         }
     })
-}
+    }
+};

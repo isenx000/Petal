@@ -1,6 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('birthdays-list')
+        .setDescription('Birthdays List'),
+    async execute(client, interaction, args) {
+
     const rawBirthdayboard = await Schema.find({ Guild: interaction.guild.id })
 
     if (rawBirthdayboard.length < 1) return client.errNormal({ 
@@ -11,6 +20,5 @@ module.exports = async (client, interaction, args) => {
     const lb = rawBirthdayboard.map(e => `${client.emotes.normal.birthday} | **<@!${e.User}>** - ${e.Birthday} `);
 
     await client.createLeaderboard(`🎂・Birthdays - ${interaction.guild.name}`, lb, interaction);
-}
-
- 
+    }
+};

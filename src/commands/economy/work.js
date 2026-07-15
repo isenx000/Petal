@@ -1,6 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('work')
+        .setDescription('Work'),
+    async execute(client, interaction, args) {
+
   let user = interaction.user;
   let timeout = 600000;
 
@@ -52,6 +61,5 @@ module.exports = async (client, interaction, args) => {
       client.addMoney(interaction, user, amount);
     }
   })
-}
-
- 
+    }
+};

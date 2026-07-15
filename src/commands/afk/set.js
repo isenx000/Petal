@@ -1,6 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('afk-set')
+        .setDescription('Afk Set'),
+    async execute(client, interaction, args) {
+
     const reason = interaction.options.getString('reason') || `Not specified`;
 
     Schema.findOne({ Guild: interaction.guild.id, User: interaction.user.id }, async (err, data) => {
@@ -31,6 +40,5 @@ module.exports = async (client, interaction, args) => {
             }, interaction.channel)
         }
     })
-}
-
- 
+    }
+};

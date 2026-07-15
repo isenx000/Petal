@@ -1,9 +1,18 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 // const Topgg = require(`@top-gg/sdk`);
 // const moment = require("moment");
 // require("moment-duration-format");
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('vote')
+        .setDescription('Vote'),
+    async execute(client, interaction, args) {
+
     let dbl = new Topgg.Api(process.env.TOPGG_TOKEN)
 
     let row = new Discord.ActionRowBuilder()
@@ -36,6 +45,5 @@ module.exports = async (client, interaction, args) => {
             }, interaction)
         }
     }).catch(error => { client.errNormal({ text: `There was an error by checking this vote!`, editreply: true }, interaction) });
-}
-
- 
+    }
+};

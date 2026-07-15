@@ -1,7 +1,7 @@
-// const {} = require('discord.js');
+const { Events } = require('discord.js');
 
 module.exports = async (client) => {
-    client.on(Discord.Events.MessageCreate, async (message) => {
+    client.on(Events.MessageCreate, async (message) => {
         if (message.channel.type === Discord.ChannelType.DM) return;
 
         try {
@@ -28,7 +28,7 @@ module.exports = async (client) => {
         catch { }
     }).setMaxListeners(0);
 
-    client.on(Discord.Events.MessageUpdate, async (oldMessage, newMessage) => {
+    client.on(Events.MessageUpdate, async (oldMessage, newMessage) => {
         if (oldMessage.content === newMessage.content || newMessage.channel.type === Discord.ChannelType.DM) return;
         try {
             BlackList.findOne({ Guild: oldMessage.guild.id }, async (err, data) => {

@@ -1,6 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('invites-show')
+        .setDescription('Invites Show'),
+    async execute(client, interaction, args) {
+
     let user = interaction.options.getUser('user') || interaction.user;
 
     Schema.findOne({ Guild: interaction.guild.id, User: user.id }, async (err, data) => {
@@ -43,6 +52,5 @@ module.exports = async (client, interaction, args) => {
             }, interaction)
         }
     });
-}
-
- 
+    }
+};

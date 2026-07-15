@@ -1,5 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
 
-module.exports = async (client, interaction, args) => {
+
+
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('avatar')
+        .setDescription('Avatar'),
+    async execute(client, interaction, args) {
+
   const user = interaction.options.getUser('user') || interaction.user;
 
   client.embed({
@@ -7,6 +17,5 @@ module.exports = async (client, interaction, args) => {
     image: user.displayAvatarURL({ dynamic: false, size: 1024 }),
     type: 'editreply'
   }, interaction)
-}
-
- 
+    }
+};

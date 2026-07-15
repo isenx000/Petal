@@ -1,7 +1,16 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 // const axios = require("axios");
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('banner')
+        .setDescription('Banner'),
+    async execute(client, interaction, args) {
+
   const user = interaction.options.getUser('user') || interaction.user;
 
   axios.get(`https://discord.com/api/users/${user.id}`, {
@@ -41,6 +50,5 @@ module.exports = async (client, interaction, args) => {
       }
     }
   })
-}
-
- 
+    }
+};

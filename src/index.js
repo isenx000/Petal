@@ -37,100 +37,100 @@ const config = require("./config/bot.js");
 //     AutoPoster(process.env.TOPGG_TOKEN, manager);
 // }
 
-manager.on('shardCreate', shard => {
-    let embed = new EmbedBuilder()
-        .setTitle(`🆙・Launching shard`)
-        .setDescription(`A shard has just been launched`)
-        .setFields([
-            {
-                name: "🆔┆ID",
-                value: `${shard.id + 1}/${manager.totalShards}`,
-                inline: true
-            },
-            {
-                name: `📃┆State`,
-                value: `Starting up...`,
-                inline: true
-            }
-        ])
-        .setColor(config.colors.normal)
+// manager.on('shardCreate', shard => {
+//     let embed = new EmbedBuilder()
+//         .setTitle(`🆙・Launching shard`)
+//         .setDescription(`A shard has just been launched`)
+//         .setFields([
+//             {
+//                 name: "🆔┆ID",
+//                 value: `${shard.id + 1}/${manager.totalShards}`,
+//                 inline: true
+//             },
+//             {
+//                 name: `📃┆State`,
+//                 value: `Starting up...`,
+//                 inline: true
+//             }
+//         ])
+//         .setColor(config.colors.normal)
     
-    startLogs.send({
-        username: 'Bot Logs',
-        embeds: [embed],
-    });
+//     startLogs.send({
+//         username: 'Bot Logs',
+//         embeds: [embed],
+//     });
 
-    console.log(chalk.blue(chalk.bold(`System`)), (chalk.white(`>>`)), (chalk.green(`Starting`)), chalk.red(`Shard #${shard.id + 1}`), (chalk.white(`...`)))
-    console.log(`\u001b[0m`);
+//     console.log(chalk.blue(chalk.bold(`System`)), (chalk.white(`>>`)), (chalk.green(`Starting`)), chalk.red(`Shard #${shard.id + 1}`), (chalk.white(`...`)))
+//     console.log(`\u001b[0m`);
 
-    shard.on("death", (process) => {
-        const embed = new EmbedBuilder()
-            .setTitle(`🚨・Closing shard ${shard.id + 1}/${manager.totalShards} unexpectedly`)
-            .setFields([
-                {
-                    name: "🆔┆ID",
-                    value: `${shard.id + 1}/${manager.totalShards}`,
-                },
-            ])
-            .setColor(config.colors.normal)
-        shardLogs.send({
-            username: 'Bot Logs',
-            embeds: [embed]
-        });
+//     shard.on("death", (process) => {
+//         const embed = new EmbedBuilder()
+//             .setTitle(`🚨・Closing shard ${shard.id + 1}/${manager.totalShards} unexpectedly`)
+//             .setFields([
+//                 {
+//                     name: "🆔┆ID",
+//                     value: `${shard.id + 1}/${manager.totalShards}`,
+//                 },
+//             ])
+//             .setColor(config.colors.normal)
+//         shardLogs.send({
+//             username: 'Bot Logs',
+//             embeds: [embed]
+//         });
 
-        if (process.exitCode === null) {
-            const embed = new Discord.EmbedBuilder()
-                .setTitle(`🚨・Shard ${shard.id + 1}/${manager.totalShards} exited with NULL error code!`)
-                .setFields([
-                    {
-                        name: "PID",
-                        value: `\`${process.pid}\``,
-                    },
-                    {
-                        name: "Exit code",
-                        value: `\`${process.exitCode}\``,
-                    }
-                ])
-                .setColor(config.colors.normal)
-            shardLogs.send({
-                username: 'Bot Logs',
-                embeds: [embed]
-            });
-        }
-    });
+//         if (process.exitCode === null) {
+//             const embed = new Discord.EmbedBuilder()
+//                 .setTitle(`🚨・Shard ${shard.id + 1}/${manager.totalShards} exited with NULL error code!`)
+//                 .setFields([
+//                     {
+//                         name: "PID",
+//                         value: `\`${process.pid}\``,
+//                     },
+//                     {
+//                         name: "Exit code",
+//                         value: `\`${process.exitCode}\``,
+//                     }
+//                 ])
+//                 .setColor(config.colors.normal)
+//             shardLogs.send({
+//                 username: 'Bot Logs',
+//                 embeds: [embed]
+//             });
+//         }
+//     });
 
-    shard.on("shardDisconnect", (event) => {
-        const embed = new Discord.EmbedBuilder()
-            .setTitle(`🚨・Shard ${shard.id + 1}/${manager.totalShards} disconnected`)
-            .setDescription("Dumping socket close event...")
-            .setColor(config.colors.normal)
-        shardLogs.send({
-            username: 'Bot Logs',
-            embeds: [embed],
-        });
-    });
+//     shard.on("shardDisconnect", (event) => {
+//         const embed = new Discord.EmbedBuilder()
+//             .setTitle(`🚨・Shard ${shard.id + 1}/${manager.totalShards} disconnected`)
+//             .setDescription("Dumping socket close event...")
+//             .setColor(config.colors.normal)
+//         shardLogs.send({
+//             username: 'Bot Logs',
+//             embeds: [embed],
+//         });
+//     });
 
-    shard.on("shardReconnecting", () => {
-        const embed = new Discord.EmbedBuilder()
-            .setTitle(`🚨・Reconnecting shard ${shard.id + 1}/${manager.totalShards}`)
-            .setColor(config.colors.normal)
-        shardLogs.send({
-            username: 'Bot Logs',
-            embeds: [embed],
-        });
-    });
-});
+//     shard.on("shardReconnecting", () => {
+//         const embed = new Discord.EmbedBuilder()
+//             .setTitle(`🚨・Reconnecting shard ${shard.id + 1}/${manager.totalShards}`)
+//             .setColor(config.colors.normal)
+//         shardLogs.send({
+//             username: 'Bot Logs',
+//             embeds: [embed],
+//         });
+//     });
+// });
 
-// Webhooks
-const consoleLogs = new Discord.WebhookClient({
-    id: webhook.consoleLogs.id,
-    token: webhook.consoleLogs.token,
-});
+// // Webhooks
+// const consoleLogs = new Discord.WebhookClient({
+//     id: webhook.consoleLogs.id,
+//     token: webhook.consoleLogs.token,
+// });
 
-const warnLogs = new Discord.WebhookClient({
-    id: webhook.warnLogs.id,
-    token: webhook.warnLogs.token,
-});
+// const warnLogs = new Discord.WebhookClient({
+//     id: webhook.warnLogs.id,
+//     token: webhook.warnLogs.token,
+// });
 
 // process.on('unhandledRejection', error => {
 //     console.error('Unhandled promise rejection:', error);

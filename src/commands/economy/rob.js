@@ -1,8 +1,16 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 // const ms = require("ms");
 
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('rob')
+        .setDescription('Rob'),
+    async execute(client, interaction, args) {
 
-module.exports = async (client, interaction, args) => {
 
     const user = interaction.options.getUser('user');
     if (!user) return client.errUsage({ usage: "rob [mention user]", type: 'editreply' }, interaction);
@@ -87,6 +95,5 @@ module.exports = async (client, interaction, args) => {
         })
     }
     catch { }
-}
-
- 
+    }
+};

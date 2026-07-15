@@ -1,9 +1,17 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 // const moment = require('moment');
 // const momentTimezone = require('moment-timezone');
 
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('time')
+        .setDescription('Time'),
+    async execute(client, interaction, args) {
 
-module.exports = async (client, interaction, args) => {
     const time = interaction.options.getString("timezone");
 
     if (!momentTimezone.tz.zone(time)) return client.errNormal({
@@ -43,7 +51,5 @@ module.exports = async (client, interaction, args) => {
             type: 'editreply'
         }, interaction);
     })
-
-}
-
- 
+    }
+};

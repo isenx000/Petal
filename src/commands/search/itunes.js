@@ -1,7 +1,16 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 // const pop = require("popcat-wrapper");
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('itunes')
+        .setDescription('Itunes'),
+    async execute(client, interaction, args) {
+
 
     const song = interaction.options.getString('song');
 
@@ -55,6 +64,5 @@ module.exports = async (client, interaction, args) => {
         ],
         type: 'editreply'
     }, interaction)
-}
-
- 
+    }
+};

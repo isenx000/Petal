@@ -1,6 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('buy')
+        .setDescription('Buy'),
+    async execute(client, interaction, args) {
+
     const storeData = await store.find({ Guild: interaction.guild.id });
     if (storeData.length == 0) return client.errNormal({
         error: `No shop found in this server`,
@@ -107,5 +116,5 @@ module.exports = async (client, interaction, args) => {
             components: []
         }, i);
     })
-}
-
+    }
+};

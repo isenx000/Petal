@@ -1,5 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
 
-module.exports = async (client, interaction, args) => {
+
+
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('roast')
+        .setDescription('Roast'),
+    async execute(client, interaction, args) {
+
 
     const user = interaction.options.getUser('user');
 
@@ -86,6 +96,5 @@ module.exports = async (client, interaction, args) => {
         desc: `${user}, ${roasts[Math.floor(Math.random() * roasts.length)]}`,
         type: 'editreply'
     }, interaction)
-}
-
- 
+    }
+};

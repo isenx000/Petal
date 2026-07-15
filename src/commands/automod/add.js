@@ -1,6 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('automod-add')
+        .setDescription('Automod Add'),
+    async execute(client, interaction, args) {
+
     const word = interaction.options.getString('word');
 
     Schema.findOne({ Guild: interaction.guild.id }, async (err, data) => {
@@ -33,6 +42,5 @@ module.exports = async (client, interaction, args) => {
         ],
         type: 'editreply'
     }, interaction);
-}
-
- 
+    }
+};

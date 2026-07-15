@@ -1,6 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
-module.exports = async (client, interaction, args) => {    
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('say')
+        .setDescription('Say'),
+    async execute(client, interaction, args) {
+    
     const text = interaction.options.getString('text');
 
     if (text.length >= 2000) return client.errNormal({ 
@@ -14,6 +23,5 @@ module.exports = async (client, interaction, args) => {
             type: 'ephemeraledit'
         }, interaction)
     })
-}
-
- 
+    }
+};

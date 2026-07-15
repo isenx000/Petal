@@ -1,8 +1,17 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
 // const { inspect } = require('util');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('eval')
+        .setDescription('Eval'),
+    async execute(client, interaction, args) {
+
     const webhookClientLogs = new Discord.WebhookClient({
         id: client.webhooks.evalLogs.id,
         token: client.webhooks.evalLogs.token,
@@ -91,11 +100,10 @@ module.exports = async (client, interaction, args) => {
     }
 }
 
-const clean = text => {
-    if (typeof (text) === "string")
-        return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
-    else
-        return text;
-}
-
- 
+// const clean = text => {
+//     if (typeof (text) === "string")
+//         return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
+//     else
+//         return text;
+//     }
+};

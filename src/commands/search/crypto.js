@@ -1,7 +1,16 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 // const axios = require('axios');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('crypto')
+        .setDescription('Crypto'),
+    async execute(client, interaction, args) {
+
 
     let coin = interaction.options.getString('coin');
     let currency = interaction.options.getString('currency');
@@ -25,6 +34,5 @@ module.exports = async (client, interaction, args) => {
             type: 'editreply' 
         }, interaction);
     }
-}
-
- 
+    }
+};

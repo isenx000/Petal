@@ -1,5 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
 
-module.exports = async (client, interaction, args) => {
+
+
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('image')
+        .setDescription('Image'),
+    async execute(client, interaction, args) {
+
 
     const image = interaction.options.getString('image-url');
     const channel = interaction.options.getChannel('channel');
@@ -14,6 +24,5 @@ module.exports = async (client, interaction, args) => {
     client.simpleEmbed({
         image: `${image}`
     }, channel)
-}
-
- 
+    }
+};

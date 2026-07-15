@@ -1,7 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('custom-commands-delete')
+        .setDescription('Custom Commands Delete'),
+    async execute(client, interaction, args) {
 
-module.exports = async (client, interaction, args) => {
     const cmdname = interaction.options.getString('command');
     Schema.findOne({ Guild: interaction.guild.id, Name: cmdname.toLowerCase() }, async (err, data) => {
         console.log(data)
@@ -27,7 +35,5 @@ module.exports = async (client, interaction, args) => {
             client.errNormal({ error: "Unable to find this command!", type: 'editreply' }, interaction);
         }
     })
-
-}
-
- 
+    }
+};

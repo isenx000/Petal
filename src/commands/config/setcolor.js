@@ -1,6 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('setcolor')
+        .setDescription('Setcolor'),
+    async execute(client, interaction, args) {
+
     const perms = await client.checkUserPerms({
         flags: [Discord.PermissionsBitField.Flags.Administrator],
         perms: [Discord.PermissionsBitField.Flags.Administrator]
@@ -49,10 +58,9 @@ module.exports = async (client, interaction, args) => {
     }, interaction)
 }
 
-function isHexColor(hex) {
-    return typeof hex === 'string'
-        && hex.length === 6
-        && !isNaN(Number('0x' + hex))
-}
-
- 
+// function isHexColor(hex) {
+//     return typeof hex === 'string'
+//         && hex.length === 6
+//         && !isNaN(Number('0x' + hex))
+//     }
+};

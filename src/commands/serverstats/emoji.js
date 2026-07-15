@@ -1,7 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('emoji')
+        .setDescription('Emoji'),
+    async execute(client, interaction, args) {
 
-module.exports = async (client, interaction, args) => {
     var channelName = await client.getTemplate(interaction.guild);
     channelName = channelName.replace(`{emoji}`, "😛")
     channelName = channelName.replace(`{name}`, `Emojis: ${interaction.guild.emojis.cache.size || '0'}`)
@@ -39,7 +47,5 @@ module.exports = async (client, interaction, args) => {
             type: 'editreply'
         }, interaction);
     })
-
-}
-
- 
+    }
+};

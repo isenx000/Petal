@@ -1,7 +1,16 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 // const weather = require('weather-js');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('weather')
+        .setDescription('Weather'),
+    async execute(client, interaction, args) {
+
     const country = interaction.options.getString('location');
 
     weather.find({ search: country, degreeType: 'C' }, function (error, result) {
@@ -52,6 +61,5 @@ module.exports = async (client, interaction, args) => {
             type: 'editreply'
         }, interaction)
     })
-}
-
- 
+    }
+};

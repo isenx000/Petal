@@ -1,9 +1,18 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 // const { decode } = require('html-entities');
 // const axios = require('axios');
 // const cheerio = require('cheerio');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('wouldyourather')
+        .setDescription('Wouldyourather'),
+    async execute(client, interaction, args) {
+
     const getRandomString = (length) => {
         const randomChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
         let result = '';
@@ -128,6 +137,5 @@ module.exports = async (client, interaction, args) => {
             });
         });
     });
-}
-
- 
+    }
+};

@@ -1,6 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('pay')
+        .setDescription('Pay'),
+    async execute(client, interaction, args) {
+
 
     const user = await interaction.guild.members.fetch(interaction.options.getUser('user'));
     let amount = interaction.options.getNumber('amount');
@@ -46,6 +55,5 @@ module.exports = async (client, interaction, args) => {
             client.errNormal({ text: `You don't have any money!`, type: 'editreply' }, interaction);
         }
     })
-}
-
- 
+    }
+};

@@ -1,6 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('gif')
+        .setDescription('Gif'),
+    async execute(client, interaction, args) {
+
     const msg = interaction.options.getString('text');
 
     if (!msg) return client.errUsage({ usage: "gif [text]", type: 'editreply' }, interaction);
@@ -14,6 +23,5 @@ module.exports = async (client, interaction, args) => {
             type: 'editreply'
         }, interaction);
     });
-}
-
- 
+    }
+};

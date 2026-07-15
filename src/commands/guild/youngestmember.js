@@ -1,6 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('youngestmember')
+        .setDescription('Youngestmember'),
+    async execute(client, interaction, args) {
+
   const members = await interaction.guild.members.fetch()
   const getMember = members.filter(m => !m.user.bot)
     .sort((a, b) => b.user.createdAt - a.user.createdAt);
@@ -24,6 +33,5 @@ module.exports = async (client, interaction, args) => {
     ],
     type: 'editreply'
   }, interaction)
-}
-
-   
+    }
+};

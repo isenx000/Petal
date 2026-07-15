@@ -1,6 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
 
 
-module.exports = async (client, interaction, args) => {
+
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('profile-delete')
+        .setDescription('Profile Delete'),
+    async execute(client, interaction, args) {
+
 
     Schema.findOne({ User: interaction.user.id }, async (err, data) => {
 
@@ -19,6 +28,5 @@ module.exports = async (client, interaction, args) => {
             }, interaction)
         }
     })
-}
-
- 
+    }
+};

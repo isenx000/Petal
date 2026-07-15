@@ -1,6 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('reactionroles-list')
+        .setDescription('Reactionroles List'),
+    async execute(client, interaction, args) {
+
     const reactions = await Schema.find({ Guild: interaction.guild.id });
     if (!reactions) return client.errNormal({ 
         error: `No data found!`,
@@ -18,6 +27,5 @@ module.exports = async (client, interaction, args) => {
         desc: list,
         type: 'editreply'
     }, interaction)
-}
-
- 
+    }
+};

@@ -1,7 +1,16 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 // const pop = require("popcat-wrapper");
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('clown')
+        .setDescription('Clown'),
+    async execute(client, interaction, args) {
+
 
     const member = interaction.options.getUser('user');
 
@@ -12,5 +21,5 @@ module.exports = async (client, interaction, args) => {
 
     const embed = client.templateEmbed().setImage("attachment://clown.png");
     interaction.editReply({ files: [attach], embeds: [embed] });
-}
-
+    }
+};

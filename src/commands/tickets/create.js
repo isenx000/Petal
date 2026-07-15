@@ -1,7 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('tickets-create')
+        .setDescription('Tickets Create'),
+    async execute(client, interaction, args) {
 
-module.exports = async (client, interaction, args) => {
     let reason = "Not given";
     if (interaction.options) reason = interaction.options.getString('reason') || "Not given";
 
@@ -212,6 +220,5 @@ module.exports = async (client, interaction, args) => {
             })
         }
     })
-}
-
- 
+    }
+};

@@ -1,8 +1,17 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 // const moment = require("moment");
 // require("moment-duration-format");
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('uptime')
+        .setDescription('Uptime'),
+    async execute(client, interaction, args) {
+
     const duration = moment.duration(client.uptime).format("\`D\` [days], \`H\` [hrs], \`m\` [mins], \`s\` [secs]");
     const upvalue = (Date.now() / 1000 - client.uptime / 1000).toFixed(0);
 
@@ -23,6 +32,5 @@ module.exports = async (client, interaction, args) => {
         ],
         type: 'editreply'
     }, interaction)
-}
-
- 
+    }
+};

@@ -1,7 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('unstick')
+        .setDescription('Unstick'),
+    async execute(client, interaction, args) {
 
-module.exports = async (client, interaction, args) => {
     const channel = interaction.options.getChannel('channel');
 
     Schema.findOne({ Guild: interaction.guild.id, Channel: channel.id }, async (err, data) => {
@@ -26,6 +34,5 @@ module.exports = async (client, interaction, args) => {
             }, interaction)
         }
     })
-}
-
- 
+    }
+};

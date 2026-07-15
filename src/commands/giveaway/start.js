@@ -1,7 +1,16 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 // const ms = require('ms');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('start')
+        .setDescription('Start'),
+    async execute(client, interaction, args) {
+
     const gchannel = interaction.options.getChannel('channel');
     const duration = interaction.options.getString('duration');
     const winnerCount = interaction.options.getNumber('winners');
@@ -52,6 +61,5 @@ module.exports = async (client, interaction, args) => {
             type: 'ephemeraledit'
         }, interaction);
     });
-}
-
- 
+    }
+};

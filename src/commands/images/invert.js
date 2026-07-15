@@ -1,7 +1,16 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 // const pop = require("popcat-wrapper");
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('invert')
+        .setDescription('Invert'),
+    async execute(client, interaction, args) {
+
 
     const member = interaction.options.getUser('user');
 
@@ -11,5 +20,5 @@ module.exports = async (client, interaction, args) => {
     let attach = new Discord.AttachmentBuilder(image, { name: "invert.png" });
     const embed = client.templateEmbed().setImage('attachment://invert.png')
     interaction.editReply({ files: [attach], embeds: [embed] })
-}
-
+    }
+};

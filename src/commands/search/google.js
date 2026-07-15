@@ -1,6 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('google')
+        .setDescription('Google'),
+    async execute(client, interaction, args) {
+
 
     let name = encodeURIComponent(interaction.options.getString('name'));
     let link = `https://www.google.com/search?q=${name}`;
@@ -15,7 +24,5 @@ module.exports = async (client, interaction, args) => {
             }
         ], type: 'editreply'
     }, interaction);
-
-}
-
- 
+    }
+};

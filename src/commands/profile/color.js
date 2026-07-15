@@ -1,7 +1,16 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 
 // const isHexcolor = require('is-hexcolor');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('color')
+        .setDescription('Color'),
+    async execute(client, interaction, args) {
+
 
     const color = interaction.options.getString('color');
 
@@ -26,6 +35,5 @@ module.exports = async (client, interaction, args) => {
             return client.errNormal({ error: "No profile found! Open a profile with createprofile", type:'editreply' }, interaction);
         }
     })
-}
-
- 
+    }
+};

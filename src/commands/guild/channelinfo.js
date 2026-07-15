@@ -1,6 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('channelinfo')
+        .setDescription('Channelinfo'),
+    async execute(client, interaction, args) {
+
   const channel = interaction.options.getChannel('channel');
 
   client.embed({
@@ -45,6 +54,5 @@ module.exports = async (client, interaction, args) => {
       ],
       type: 'editreply'
   }, interaction)
-}
-
-   
+    }
+};

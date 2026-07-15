@@ -1,6 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('changelogs')
+        .setDescription('Changelogs'),
+    async execute(client, interaction, args) {
+
     client.embed({
         title: "📃・Changelogs",
         desc: `_____`,
@@ -13,6 +22,5 @@ module.exports = async (client, interaction, args) => {
         ],
         type: 'editreply'
     }, interaction)
-}
-
- 
+    }
+};

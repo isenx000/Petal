@@ -1,5 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
 
-module.exports = async (client, interaction, args) => {
+
+
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('dinochrome')
+        .setDescription('Dinochrome'),
+    async execute(client, interaction, args) {
+
 
     let msg = await interaction.editReply({ content: `---------------🦖`, fetchReply: true });
     let time = 1 * 1000;
@@ -91,6 +101,5 @@ module.exports = async (client, interaction, args) => {
     setTimeout(function () {
         interaction.editReply(`**Ⓜⓘⓢⓢⓘⓞⓝ Ⓒⓞⓜⓟⓛⓔⓣⓔⓓ !**\n ---🎂🦖----------🌵🌵-------------`);
     }, time);
-}
-
- 
+    }
+};

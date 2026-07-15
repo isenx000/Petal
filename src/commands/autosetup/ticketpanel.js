@@ -1,6 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('autosetup-ticketpanel')
+        .setDescription('Autosetup Ticketpanel'),
+    async execute(client, interaction, args) {
+
     ticketSchema.findOne({ Guild: interaction.guild.id }, async (err, ticketData) => {
         if (ticketData) {
             const channel = interaction.guild.channels.cache.get(ticketData.Channel);
@@ -31,6 +40,5 @@ module.exports = async (client, interaction, args) => {
             }, interaction);
         }
     })
-}
-
- 
+    }
+};

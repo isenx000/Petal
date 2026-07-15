@@ -1,7 +1,16 @@
-// const {} = require('discord.js');
-const fetch = require('node-fetch');
+const { SlashCommandBuilder } = require('discord.js');
 
-module.exports = async (client, interaction, args) => {
+// const {} = require('discord.js');
+// const fetch = require('node-fetch');
+
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('corona')
+        .setDescription('Corona'),
+    async execute(client, interaction, args) {
+
 
     let countries = interaction.options.getString('country');
 
@@ -36,6 +45,5 @@ module.exports = async (client, interaction, args) => {
         }).catch(e => {
             return client.errNormal({ error: `Invalid country provided!`, type: 'editreply' }, interaction);
         })
-}
-
- 
+    }
+};

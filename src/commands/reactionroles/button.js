@@ -1,6 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('reactionroles-button')
+        .setDescription('Reactionroles Button'),
+    async execute(client, interaction, args) {
+
     const category = interaction.options.getString('category');
     const channel = interaction.options.getChannel('channel') || interaction.channel;
 
@@ -37,6 +46,5 @@ module.exports = async (client, interaction, args) => {
             type: 'ephemeraledit'
         }, interaction);
     })
-}
-
- 
+    }
+};

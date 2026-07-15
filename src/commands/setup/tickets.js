@@ -1,7 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('tickets')
+        .setDescription('Tickets'),
+    async execute(client, interaction, args) {
 
-module.exports = async (client, interaction, args) => {
     const category = interaction.options.getChannel('category');
     const role = interaction.options.getRole('role');
     const channel = interaction.options.getChannel('channel');
@@ -30,6 +38,5 @@ module.exports = async (client, interaction, args) => {
         text: `Tickets has been set up successfully!`,
         type: 'editreply'
     }, interaction);
-}
-
- 
+    }
+};

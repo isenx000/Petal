@@ -1,8 +1,18 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 // const ms = require('ms');
 
 let timeLength = 50000;
-module.exports = async (client, interaction, args) => {
+
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('fasttype')
+        .setDescription('Fasttype'),
+    async execute(client, interaction, args) {
+
 
     let list = `Because we were lost, we had to go back the way we came.
     He's in a boy band which doesn't make much sense for a snake.
@@ -129,6 +139,5 @@ module.exports = async (client, interaction, args) => {
     }
 
     start()
-}
-
- 
+    }
+};

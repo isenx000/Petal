@@ -2,7 +2,7 @@ const { WebhookClient, EmbedBuilder } = require("discord.js");
 // const fetch = require("node-fetch");
 
 const config = require('../../config/bot');
-const { colors } = config.colors;
+const colors = config.colors;
 
 module.exports = async (client, message) => {
   // const dmlog = new WebhookClient({

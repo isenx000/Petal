@@ -1,7 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('store')
+        .setDescription('Store'),
+    async execute(client, interaction, args) {
 
-module.exports = async (client, interaction, args, message) => {
     store.find({ Guild: interaction.guild.id }, async (err, storeData) => {
         if (storeData && storeData.length > 0) {
             const lb = storeData.map(e => `**<@&${e.Role}>** - ${client.emotes.economy.coins} $${e.Amount} \n**To buy:** \`buy ${e.Role}\``);
@@ -19,7 +27,5 @@ module.exports = async (client, interaction, args, message) => {
             }, interaction);
         }
     })
-
-}
-
- 
+    }
+};

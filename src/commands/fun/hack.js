@@ -1,7 +1,16 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const fetch = require("node-fetch");
 // const generator = require('generate-password');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('hack')
+        .setDescription('Hack'),
+    async execute(client, interaction, args) {
+
 
     const password = generator.generate({
         length: 10,
@@ -124,7 +133,5 @@ module.exports = async (client, interaction, args) => {
             })
         })
     })
-
-}
-
- 
+    }
+};

@@ -1,7 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('economy-leaderboard')
+        .setDescription('Economy Leaderboard'),
+    async execute(client, interaction, args) {
 
-module.exports = async (client, interaction, args) => {
     const type = interaction.options.getString("type");
 
     if (type == "money") {
@@ -28,6 +36,5 @@ module.exports = async (client, interaction, args) => {
 
         await client.createLeaderboard(`🏦・Bank - ${interaction.guild.name}`, lb, interaction);
     }
-}
-
- 
+    }
+};

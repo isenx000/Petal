@@ -1,11 +1,20 @@
+const { SlashCommandBuilder, WebhookClient } = require('discord.js');
+
 // const {} = require('discord.js');
 
-const webhookClientLogs = new Discord.WebhookClient({
+const webhookClientLogs = new WebhookClient({
     id: "",
     token: "",
 });
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('credits')
+        .setDescription('Credits'),
+    async execute(client, interaction, args) {
+
     const type = interaction.options.getString('type');
     const user = interaction.options.getUser('user');
     const amount = interaction.options.getNumber('amount');
@@ -70,6 +79,5 @@ module.exports = async (client, interaction, args) => {
             embeds: [embedLogs],
         });
     }
-}
-
- 
+    }
+};

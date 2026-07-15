@@ -1,7 +1,16 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 // const ms = require('ms');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('pause')
+        .setDescription('Pause'),
+    async execute(client, interaction, args) {
+
     const messageID = interaction.options.getString('message');
     const giveaway = client.giveawaysManager.giveaways.find((g) => g.guildId === interaction.guildId && g.messageId === messageID);
     if (!giveaway) return client.errNormal({ error: "This message ID is not from this guild", type: 'editreply' }, interaction)
@@ -16,6 +25,5 @@ module.exports = async (client, interaction, args) => {
             type: 'editreply' 
         }, interaction)
     });
-}
-
- 
+    }
+};

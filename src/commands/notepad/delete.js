@@ -1,7 +1,16 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 // const generator = require('generate-password');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('notepad-delete')
+        .setDescription('Notepad Delete'),
+    async execute(client, interaction, args) {
+
 
     let id = interaction.options.getString('id');
 
@@ -15,6 +24,5 @@ module.exports = async (client, interaction, args) => {
             client.errNormal({ error: `No note found with the id **#${id}**`, type: 'editreply' }, interaction);
         }
     })
-}
-
- 
+    }
+};

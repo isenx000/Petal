@@ -1,6 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('antilinks')
+        .setDescription('Antilinks'),
+    async execute(client, interaction, args) {
+
     const boolean = interaction.options.getBoolean('active');
 
     const data = await Schema.findOne({ Guild: interaction.guild.id });
@@ -19,6 +28,5 @@ module.exports = async (client, interaction, args) => {
         text: `Anti links is now **${boolean ? 'enabled' : 'disabled'}** in this guild`,
         type: 'editreply'
     }, interaction);
-}
-
- 
+    }
+};

@@ -1,6 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('stealemoji')
+        .setDescription('Stealemoji'),
+    async execute(client, interaction, args) {
+
   const perms = await client.checkPerms({
     flags: [Discord.PermissionsBitField.Flags.ManageEmojisAndStickers],
     perms: [Discord.PermissionsBitField.Flags.ManageEmojisAndStickers]
@@ -72,5 +81,5 @@ module.exports = async (client, interaction, args) => {
       type: 'editreply'
     }, interaction)
   }
-}
-
+    }
+};

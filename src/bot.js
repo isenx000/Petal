@@ -1,5 +1,6 @@
-const { Client, Partials, GatewayIntentBits } = require('js');
+const { Client, Partials, GatewayIntentBits, Collection, WebhookClient } = require('discord.js');
 const fs = require('fs');
+require('dotenv').config()
 
 // Discord client
 const client = new Client({
@@ -44,7 +45,7 @@ const client = new Client({
 });
 
 // Connect to database
-require("./database/connect")();
+// require("./database/connect")();
 
 // Client settings
 client.config = require('./config/bot');
@@ -80,7 +81,7 @@ fs.readdirSync('./src/handlers').forEach((dir) => {
     });
 });
 
-client.login(process.env.DISCORD_TOKEN);
+client.login(process.env.DISCORD_BOT_TOKEN);
 
 // process.on('unhandledRejection', error => {
 //     console.error('Unhandled promise rejection:', error);

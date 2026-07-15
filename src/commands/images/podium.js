@@ -1,7 +1,16 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 // const DIG = require("discord-image-generation");
 
-module.exports = async (client, interaction, args) => {
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('podium')
+        .setDescription('Podium'),
+    async execute(client, interaction, args) {
+
     const user1 = interaction.options.getUser('user1') || interaction.user;
     const user2 = interaction.options.getUser('user2') || interaction.user;
     const user3 = interaction.options.getUser('user3') || interaction.user;
@@ -14,5 +23,5 @@ module.exports = async (client, interaction, args) => {
     var attach = new Discord.AttachmentBuilder(img, { name: "podium.png" });
     const embed = client.templateEmbed().setImage("attachment://podium.png");
     interaction.editReply({ files: [attach], embeds: [embed] });
-}
-
+    }
+};

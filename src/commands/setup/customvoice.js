@@ -1,7 +1,15 @@
+const { SlashCommandBuilder } = require('discord.js');
+
 // const {} = require('discord.js');
 
+module.exports = {
+    permissions: { user: [], bot: [] },
+    cooldown: 0,
+    data: new SlashCommandBuilder()
+        .setName('customvoice')
+        .setDescription('Customvoice'),
+    async execute(client, interaction, args) {
 
-module.exports = async (client, interaction, args) => {
     const category = interaction.options.getChannel('category');
     const ChannelName = interaction.options.getString('channelname');
 
@@ -44,6 +52,5 @@ module.exports = async (client, interaction, args) => {
             type: 'editreply'
         }, interaction);
     })
-}
-
- 
+    }
+};
