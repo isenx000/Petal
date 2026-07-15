@@ -107,3 +107,4 @@ src/config/*
 
 package-lock.json
 package.json
+src/config/webhooks.json
