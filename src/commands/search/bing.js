@@ -1,29 +1,52 @@
-const { SlashCommandBuilder } = require('discord.js');
-
-// const {} = require('discord.js');
+const { SlashCommandBuilder, EmbedBuilder, inlineCode } = require('discord.js');
 
 module.exports = {
-    permissions: { user: [], bot: [] },
+    permissions: { user: [], bot: ['SendMessages', 'EmbedLinks'] },
     cooldown: 0,
     slash: true,
     data: new SlashCommandBuilder()
         .setName('bing')
-        .setDescription('Bing'),
+        .setDescription('Bing')
+        .addStringOption(option => 
+            option.setName(`query`)
+                .setDescription(`Search Query`)
+                .setRequired(true)
+        ),
     async execute(client, interaction, args) {
 
+        const isSlashCommand = !!interaction.options;
 
-    let name = encodeURIComponent(interaction.options.getString('name'));
-    let link = `https://www.bing.com/search?q=${name}`;
+        const query = isSlashCommand
+            ? interaction.options.getString('query')
+            : args.join(' ')
 
-    client.succNormal({
-        text: `I have found the following for: \`${name}\``,
-        fields: [
-            {
-                name: `🔗┇Link`,
-                value: `[Click here to see the link](${link})`,
-                inline: true,
+        if (!query) {
+            if (isSlashCommand) {
+                return interaction.reply({
+                    content: 'Please provide a query!',
+                    ephemeral: true
+                })
             }
-        ], type: 'editreply'
-    }, interaction);
+
+            return interaction.channel.send('Please provide a query!');
+        }
+        
+        let url = `https://www.bing.com/search?q=${query}`;
+
+        const embed = new EmbedBuilder()
+            .setTitle(`I have found the following for: ${inlineCode(query)}`)
+            .addFields(
+                {
+                    name: `🔗┇Link`,
+                    value: `[Click here to see the link](${url})`,
+                    inline: true,
+                }
+            )
+
+        if (isSlashCommand) {
+            await interaction.reply({ embeds: [embed] })
+        } else {
+            await interaction.channel.send({ embeds: [embed] })
+        }
     }
 };

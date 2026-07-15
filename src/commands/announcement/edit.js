@@ -3,7 +3,7 @@ const { SlashCommandBuilder } = require('discord.js');
 // const {} = require('discord.js');
 
 module.exports = {
-    permissions: { user: [], bot: [] },
+    permissions: { user: ['ManageMessages'], bot: ['SendMessages', 'EmbedLinks', 'ReadMessageHistory'] },
     cooldown: 0,
     slash: false,
     data: new SlashCommandBuilder()

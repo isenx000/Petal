@@ -1,31 +1,75 @@
-const { SlashCommandBuilder } = require('discord.js');
+const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
+const axios = require('axios');
 
-// const {} = require('discord.js');
-// const fetch = require('node-fetch');
+
+// This API may be outdated. Replace or update it if you intend to use this command.
 
 module.exports = {
-    permissions: { user: [], bot: [] },
+    permissions: { user: [], bot: ['SendMessages', 'EmbedLinks'] },
     cooldown: 0,
     slash: true,
     data: new SlashCommandBuilder()
         .setName('corona')
-        .setDescription('Corona'),
+        .setDescription('Corona')
+        .addStringOption(option =>
+            option.setName('country')
+            .setDescription('The country to check stats for')
+            .setRequired(true)),
     async execute(client, interaction, args) {
 
+        const isSlashCommand = !!interaction.options;
 
-    let countries = interaction.options.getString('country');
+        const country = isSlashCommand
+            ? interaction.options.getString('country')
+            : args.join(' ');
 
-    fetch(`https://covid19.mathdro.id/api/countries/${countries}`)
-        .then(response => response.json())
-        .then(data => {
-            let confirmed = data.confirmed.value.toLocaleString()
-            let recovered = data.recovered.value.toLocaleString()
-            let deaths = data.deaths.value.toLocaleString()
+        if (!country) {
+            if (isSlashCommand) {
+                return interaction.reply({
+                    content: 'Please provide a country!',
+                    ephemeral: true
+                });
+            }
 
+            return interaction.channel.send('Please provide a country!');
+        }
+        
+        const { data: regionData } = await axios.get('https://covid-api.com/api/regions', {
+            params: { per_page: 300 }
+        });
 
-            return client.embed({
-                title: `💉・COVID-19 - ${countries}`,
-                fields: [{
+        const countryMatch = regionData.data.find(r =>
+            r.iso.toLowerCase() === country.toLowerCase() ||
+            r.name.toLowerCase() === country.toLowerCase()
+        );
+
+        if (!countryMatch) {
+            if (isSlashCommand) {
+                return interaction.reply({
+                    content: 'No matching country/ISO code found!',
+                    ephemeral: true
+                });
+            }
+
+            return interaction.channel.send('No matching country/ISO code found!');
+        }
+
+        const { data: reportData } = await axios.get('https://covid-api.com/api/reports/total', {
+            params: { iso: countryMatch.iso }
+        });
+
+        let countryData = reportData.data;
+
+        console.log(countryData)
+        
+        const confirmed = countryData.confirmed.toLocaleString()
+        const recovered = countryData.recovered.toLocaleString()
+        const deaths = countryData.deaths.toLocaleString()
+
+        const embed = new EmbedBuilder()
+            .setTitle(`💉・COVID-19 - ${countryMatch.name}`)
+            .addFields(
+                {
                     name: "✅┇Confirmed Cases",
                     value: `${confirmed}`,
                     inline: true,
@@ -40,11 +84,12 @@ module.exports = {
                     value: `${deaths}`,
                     inline: true,
                 },
-                ], type: 'editreply'
-            }, interaction);
+            )
 
-        }).catch(e => {
-            return client.errNormal({ error: `Invalid country provided!`, type: 'editreply' }, interaction);
-        })
+        if (isSlashCommand) {
+            await interaction.reply({ embeds: [embed] });
+        } else {
+            await interaction.channel.send({ embeds: [embed] });
+        }
     }
 };

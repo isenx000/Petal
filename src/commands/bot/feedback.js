@@ -8,7 +8,7 @@ const webhookClient = new WebhookClient({
 });
 
 module.exports = {
-    permissions: { user: [], bot: [] },
+    permissions: { user: [], bot: ['SendMessages', 'EmbedLinks'] },
     cooldown: 0,
     slash: true,
     data: new SlashCommandBuilder()

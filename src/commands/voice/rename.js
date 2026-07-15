@@ -1,22 +1,15 @@
 const { SlashCommandBuilder } = require('discord.js');
-
-// const {} = require('discord.js');
+const config = require('../../config/bot');
+const { colors } = config;
 
 module.exports = {
-    permissions: { user: [], bot: [] },
+    permissions: { user: ['ManageChannels'], bot: ['ManageChannels', 'SendMessages', 'EmbedLinks'] },
     cooldown: 0,
     slash: true,
     data: new SlashCommandBuilder()
         .setName('voice-rename')
         .setDescription('Voice Rename'),
     async execute(client, interaction, args) {
-
-    const perms = await client.checkBotPerms({
-        flags: [Discord.PermissionsBitField.Flags.ManageChannels],
-        perms: [Discord.PermissionsBitField.Flags.ManageChannels]
-    }, interaction)
-
-    if (perms == false) return;
 
     let name = interaction.options.getString('name').toLowerCase();
 

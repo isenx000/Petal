@@ -6,7 +6,7 @@ const { SlashCommandBuilder } = require('discord.js');
 let timeLength = 50000;
 
 module.exports = {
-    permissions: { user: [], bot: [] },
+    permissions: { user: [], bot: ['SendMessages', 'EmbedLinks'] },
     cooldown: 0,
     slash: false,
     data: new SlashCommandBuilder()
@@ -14,8 +14,8 @@ module.exports = {
         .setDescription('Fasttype'),
     async execute(client, interaction, args) {
 
-
-    let list = `Because we were lost, we had to go back the way we came.
+        let list =
+        `Because we were lost, we had to go back the way we came.
     He's in a boy band which doesn't make much sense for a snake.
     A dead duck doesn't fly backward.
     Don't piss in my garden and tell me you're trying to help my plants grow.

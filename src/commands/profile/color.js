@@ -4,7 +4,7 @@ const { SlashCommandBuilder } = require('discord.js');
 // const isHexcolor = require('is-hexcolor');
 
 module.exports = {
-    permissions: { user: [], bot: [] },
+    permissions: { user: [], bot: ['SendMessages', 'EmbedLinks'] },
     cooldown: 0,
     slash: false,
     data: new SlashCommandBuilder()

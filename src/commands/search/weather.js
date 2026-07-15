@@ -4,7 +4,7 @@ const { SlashCommandBuilder } = require('discord.js');
 // const weather = require('weather-js');
 
 module.exports = {
-    permissions: { user: [], bot: [] },
+    permissions: { user: [], bot: ['SendMessages', 'EmbedLinks'] },
     cooldown: 0,
     slash: true,
     data: new SlashCommandBuilder()

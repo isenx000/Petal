@@ -3,7 +3,7 @@ const { SlashCommandBuilder } = require('discord.js');
 // const fetch = require("node-fetch");
 
 module.exports = {
-    permissions: { user: [], bot: [] },
+    permissions: { user: [], bot: ['SendMessages', 'EmbedLinks', 'AttachFiles'] },
     cooldown: 0,
     slash: false,
     data: new SlashCommandBuilder()

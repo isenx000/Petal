@@ -1,9 +1,9 @@
-const { SlashCommandBuilder } = require('discord.js');
-
-// const {} = require('discord.js');
+const { SlashCommandBuilder, EmbedBuilder, inlineCode } = require('discord.js');
+const config = require('../../config/bot');
+const { colors } = config;
 
 module.exports = {
-    permissions: { user: [], bot: [] },
+    permissions: { user: ['ManageChannels'], bot: ['ManageChannels', 'SendMessages', 'EmbedLinks', 'Connect'] },
     cooldown: 0,
     slash: true,
     data: new SlashCommandBuilder()
@@ -11,39 +11,45 @@ module.exports = {
         .setDescription('Limit'),
     async execute(client, interaction, args) {
 
-    const perms = await client.checkBotPerms({
-        flags: [Discord.PermissionsBitField.Flags.ManageChannels],
-        perms: [Discord.PermissionsBitField.Flags.ManageChannels]
-    }, interaction)
+        const limit = interaction.options.getNumber('limit');
 
-    if (perms == false) return;
+        const channel = interaction.member.voice.channel;
 
-    let limit = interaction.options.getNumber('limit');
+        if (!channel) {
+            const embed = new EmbedBuilder()
+                .setDescription("You're not in a voice channel!")
+                .setColor(colors?.error);
 
-    const channel = interaction.member.voice.channel;
-    if (!channel) return client.errNormal({
-        error: `You're not in a voice channel!`,
-        type: 'editreply'
-    }, interaction);
-    var checkVoice = await client.checkVoice(interaction.guild, channel);
-    if (!checkVoice) {
-        return client.errNormal({
-            error: `You cannot edit this channel!`,
-            type: 'editreply'
-        }, interaction);
-    } else {
-        channel.setUserLimit(limit);
+            return interaction.reply({
+                embeds: [embed],
+                ephemeral: true
+            });
+        }
 
-        client.succNormal({
-            text: `The channel limit was to \`${limit}\`!`,
-            fields: [
-                {
-                    name: `📘┆Channel`,
-                    value: `${channel} (${channel.name})`
-                }
-            ],
-            type: 'editreply'
-        }, interaction);
-    }
+        const checkVoice = await client.checkVoice(interaction.guild, channel);
+
+        if (!checkVoice) {
+            const embed = new EmbedBuilder()
+                .setDescription("You cannot edit this channel!")
+                .setColor(colors?.error ?? 0xED4245);
+
+            return interaction.reply({
+                embeds: [embed],
+                ephemeral: true
+            });
+        }
+
+        await channel.setUserLimit(limit);
+
+        const embed = new EmbedBuilder()
+            .setDescription(`The channel limit was set to ${inlineCode(limit)}.`)
+            .addFields({
+                name: "📘┆Channel",
+                value: `${channel} (${channel.name})`
+            });
+
+        return interaction.reply({
+            embeds: [embed]
+        });
     }
 };

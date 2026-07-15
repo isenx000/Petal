@@ -4,7 +4,7 @@ const { SlashCommandBuilder } = require('discord.js');
 // const Canvacord = require("canvacord");
 
 module.exports = {
-    permissions: { user: [], bot: [] },
+    permissions: { user: [], bot: ['SendMessages', 'EmbedLinks', 'AttachFiles'] },
     cooldown: 0,
     slash: true,
     data: new SlashCommandBuilder()

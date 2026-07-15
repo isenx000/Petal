@@ -1,10 +1,10 @@
 const { SlashCommandBuilder } = require('discord.js');
-
-// const {} = require('discord.js');
+const config = require('../../config/bot');
+const { colors } = config;
 // const generator = require('generate-password');
 
 module.exports = {
-    permissions: { user: [], bot: [] },
+    permissions: { user: [], bot: ['SendMessages', 'EmbedLinks'] },
     cooldown: 0,
     slash: false,
     data: new SlashCommandBuilder()
