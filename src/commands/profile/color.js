@@ -1,4 +1,4 @@
-const Schema = require('../../database/models/profile');
+
 const isHexcolor = require('is-hexcolor');
 
 module.exports = async (client, interaction, args) => {

@@ -1,7 +1,6 @@
 const {} = require('discord.js');
 const axios = require("axios");
 
-const model = require('../../database/models/badge');
 
 module.exports = async (client, interaction, args) => {
   const member = await interaction.guild.members.fetch(interaction.options.getUser('user').id);

@@ -1,4 +1,4 @@
-const Schema = require('../../database/models/profile');
+
 
 module.exports = async (client, interaction, args) => {
     Schema.findOne({ User: interaction.user.id }, async (err, data) => {
