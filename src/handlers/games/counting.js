@@ -48,7 +48,7 @@ module.exports = async (client) => {
             return message.react(client.emotes.normal.error);
           } catch (error) {
             message.react(client.emotes.normal.error);
-            console.log(error);
+            // console.log(error);
           }
         } else {
           if (content == countData.Count) {
@@ -72,7 +72,7 @@ module.exports = async (client) => {
               return message.react(client.emotes.normal.error);
             } catch (error) {
               message.react(client.emotes.normal.error);
-              console.log(error)
+              // console.log(error)
             }
           }
         }

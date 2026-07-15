@@ -8,6 +8,7 @@ let timeLength = 50000;
 module.exports = {
     permissions: { user: [], bot: [] },
     cooldown: 0,
+    slash: false,
     data: new SlashCommandBuilder()
         .setName('fasttype')
         .setDescription('Fasttype'),

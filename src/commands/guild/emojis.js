@@ -6,6 +6,7 @@ const { SlashCommandBuilder } = require('discord.js');
 module.exports = {
     permissions: { user: [], bot: [] },
     cooldown: 0,
+    slash: false,
     data: new SlashCommandBuilder()
         .setName('emojis')
         .setDescription('Emojis'),

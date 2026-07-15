@@ -89,7 +89,7 @@ module.exports = async (client, guild) => {
         }, defaultChannel)
     }
     catch (err) {
-        console.log(err);
+        // console.log(err);
     }
 
 

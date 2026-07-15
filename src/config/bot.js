@@ -1,4 +1,5 @@
 module.exports = {
+    name: "Petal",
     colors: {
         succes: '#57F287',
         error: "#ED4245",

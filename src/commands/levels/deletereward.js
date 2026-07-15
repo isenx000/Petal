@@ -5,6 +5,7 @@ const { SlashCommandBuilder } = require('discord.js');
 module.exports = {
     permissions: { user: [], bot: [] },
     cooldown: 0,
+    slash: true,
     data: new SlashCommandBuilder()
         .setName('levels-deletereward')
         .setDescription('Levels Deletereward'),

@@ -6,9 +6,10 @@ module.exports = {
         bot: []     // required bot permissions
     },
     cooldown: 0,
+    slash: false,
     data: new SlashCommandBuilder()
-        .setName('ping')
-        .setDescription('Replies with Pong!'),
+        .setName('list')
+        .setDescription('Displays list of AFK users'),
     async execute(client, interaction, args) {
      
          const rawboard = await Schema.find({ Guild: interaction.guild.id })

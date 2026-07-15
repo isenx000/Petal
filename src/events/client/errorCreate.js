@@ -2,7 +2,7 @@
 // const generator = require('generate-password');
 
 module.exports = (client, err, command, interaction) => {
-    console.log(err);
+    // console.log(err);
     const password = generator.generate({
         length: 10,
         numbers: true

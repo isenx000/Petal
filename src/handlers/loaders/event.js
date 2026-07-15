@@ -18,9 +18,9 @@ module.exports = (client) => {
             const eventName = file.split(".")[0];
             const eventUpperCase = eventName.charAt(0).toUpperCase() + eventName.slice(1);
             if(Events[eventUpperCase] === undefined){
-                client.on(eventName, event.bind(null, client)).setMaxListeners(0);
-            }else {
-            client.on(Events[eventUpperCase], event.bind(null, client)).setMaxListeners(0);
+                client.on(eventName, event.bind(null, client))
+            } else {
+                client.on(Events[eventUpperCase], event.bind(null, client))
             }
         };
     });

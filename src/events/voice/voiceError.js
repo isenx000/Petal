@@ -2,7 +2,7 @@
 
 module.exports = (client, error) => {
     if (error.message == undefined) {
-        console.log(error);
+        // console.log(error);
         error.message = "Send to console!";
     }
     const errorlog = new Discord.WebhookClient({
