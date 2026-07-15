@@ -1,51 +1,51 @@
-const { SlashCommandBuilder } = require('discord.js');
-
-// const {} = require('discord.js');
+const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 
 module.exports = {
     permissions: { user: [], bot: [] },
     cooldown: 0,
-    slash: false,
+    slash: true,
     data: new SlashCommandBuilder()
         .setName('ping')
         .setDescription('Ping'),
-    async execute(client, interaction, args) {
-
-    client.simpleEmbed({
-        desc: `${client.emotes.animated.loading} Calculating ping...`,
-        type: 'editreply'
-    }, interaction).then((resultMessage) => {
-        const ping = Math.floor(resultMessage.createdTimestamp - interaction.createdTimestamp);
-
-        mongoose.connection.db.admin().ping(function (err, result) {
-
-            var mongooseSeconds = ((result.ok % 60000) / 1000);
-            var pingSeconds = ((ping % 60000) / 1000);
-            var apiSeconds = ((client.ws.ping % 60000) / 1000);
-
-            client.embed({
-                title: `${client.emotes.normal.pong}・Pong`,
-                desc: `Check out how fast our bot is`,
-                fields: [
-                    {
-                        name: "🤖┆Bot latency",
-                        value: `${ping}ms (${pingSeconds}s)`,
-                        inline: true,
-                    },
-                    {
-                        name: "💻┆API Latency",
-                        value: `${client.ws.ping}ms (${apiSeconds}s)`,
-                        inline: true,
-                    },
-                    {
-                        name: "📂┆Database Latency",
-                        value: `${result.ok}ms (${mongooseSeconds}s)`,
-                        inline: true,
-                    }
-                ],
-                type: 'editreply'
-            }, interaction)
-        })
-    })
+    async execute(client, interaction) {
+        const loadingEmbed = new EmbedBuilder()
+            .setDescription(`${client.emotes.animated.loading} Calculating ping...`);
+    
+        let resultMessage;
+    
+        if (interaction.reply) {
+            resultMessage = await interaction.reply({
+                embeds: [loadingEmbed],
+                fetchReply: true,
+            });
+        } else {
+            resultMessage = await interaction.channel.send({
+                embeds: [loadingEmbed],
+            });
+        }
+    
+        const ping = resultMessage.createdTimestamp - interaction.createdTimestamp;
+    
+        const embed = new EmbedBuilder()
+            .setTitle(`${client.emotes.normal.pong}・Pong`)
+            .setDescription("Check out how fast our bot is")
+            .addFields(
+                {
+                    name: "🤖┆Bot latency",
+                    value: `${ping}ms (${ping / 1000}s)`,
+                    inline: true,
+                },
+                {
+                    name: "💻┆API Latency",
+                    value: `${client.ws.ping}ms (${client.ws.ping / 1000}s)`,
+                    inline: true,
+                }
+            );
+    
+        if (interaction.editReply) {
+            await interaction.editReply({ embeds: [embed] });
+        } else {
+            await resultMessage.edit({ embeds: [embed] });
+        }
     }
 };

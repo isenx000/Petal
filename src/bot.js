@@ -51,6 +51,7 @@ const client = new Client({
 client.config = require('./config/bot');
 client.emotes = require("./config/emojis.json");
 client.webhooks = require("./config/webhooks.json");
+
 // const webHooksArray = ['startLogs', 'shardLogs', 'errorLogs', 'dmLogs', 'voiceLogs', 'serverLogs', 'serverLogs2', 'commandLogs', 'consoleLogs', 'warnLogs', 'voiceErrorLogs', 'creditLogs', 'evalLogs', 'interactionLogs'];
 // Check if .env webhook_id and webhook_token are set
 // if (process.env.WEBHOOK_ID && process.env.WEBHOOK_TOKEN) {

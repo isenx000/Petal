@@ -5,7 +5,7 @@ const { SlashCommandBuilder } = require('discord.js');
 module.exports = {
     permissions: { user: [], bot: [] },
     cooldown: 0,
-    slash: true,
+    slash: false,
     data: new SlashCommandBuilder()
         .setName('automod-add')
         .setDescription('Automod Add'),

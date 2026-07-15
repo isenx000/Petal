@@ -2,15 +2,16 @@ const { WebhookClient, EmbedBuilder } = require("discord.js");
 // const fetch = require("node-fetch");
 
 const config = require('../../config/bot');
-const colors = config.colors;
+const { colors, prefix } = config;
 
 module.exports = async (client, message) => {
-  // const dmlog = new WebhookClient({
-  //   id: client.webhooks.dmLogs.id,
-  //   token: client.webhooks.dmLogs.token,
-  // });
 
-  if (message.author.bot) return;
+    const dmlog = new WebhookClient({
+        id: client.webhooks.dmLogs.id,
+        token: client.webhooks.dmLogs.token,
+    });
+
+    if (message.author.bot) return;
 
   // if (message.channel.type === ChannelType.DM) {
   //   let embedLogs = new EmbedBuilder()
@@ -294,8 +295,7 @@ module.exports = async (client, message) => {
   //   );
   // } catch { }
 
-  // Prefix
-    const prefix = ".";
+
   // var guildSettings = await Functions.findOne({ Guild: message.guild.id });
   // if (!guildSettings) {
   //   new Functions({
@@ -326,11 +326,13 @@ module.exports = async (client, message) => {
   //   `^(<@!?${client.user.id}>|${escapeRegex(prefix)})\\s*`
   // );
 
-  // if (!prefixRegex.test(message.content.toLowerCase())) return;
-  const [, matchedPrefix] = message.content.toLowerCase().match(prefixRegex);
-
-  const args = message.content.slice(matchedPrefix.length).trim().split(/ +/g);
-  const command = args.shift().toLowerCase();
+    if (!message.content.startsWith(prefix)) return;
+    const args = message.content.slice(prefix.length).trim().split(/ +/g);;
+    const command = args.shift().toLowerCase();
+    
+    const cmd = client.commands.get(command);
+    if (!cmd) return;
+    cmd.execute(client, message, args);
 
   // if (message.mentions.users.first() && message.mentions.users.first().id == client.user.id && command.length === 0) {
   //   let row = new Discord.ActionRowBuilder().addComponents(

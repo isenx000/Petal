@@ -1,5 +1,6 @@
 module.exports = {
     name: "Petal",
+    prefix: ".",
     colors: {
         succes: '#57F287',
         error: "#ED4245",
