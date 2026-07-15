@@ -10,26 +10,11 @@ module.exports = async (client, channel) => {
         .setTitle(`📖・Thread created`)
         .setDescription(`A thread has been created`)
         .addFields(
-                       {
-                name: `> Name`,
-                value: `- ${channel.name}`
-            },
-            {
-                name: `> ID`,
-                value: `- ${channel.id}`
-            },
-            {
-                name: `> Category`,
-                value: `${channel.parent}`
-            },
-            {
-                name: `> Channel`,
-                value: `<#${channel.id}>`
-            },
-            {
-                name: `> Type`,
-                value: `${types[channel.type]}`
-            }
+            { name: `> Name`,       value: `- ${channel.name}` },
+            { name: `> ID`,         value: `- ${channel.id}` },
+            { name: `> Category`,   value: `${channel.parent}` },
+            { name: `> Channel`,    value: `<#${channel.id}>` },
+            { name: `> Type`,       value: `${types[channel.type]}` }
         )
 
     // client.embed({

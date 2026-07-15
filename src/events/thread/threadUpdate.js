@@ -10,30 +10,11 @@ module.exports = async (client, oldChannel, newChannel) => {
         .setTitle(`📖・Thread updated`)
         .setDescription(`A thread has been updated`)
         .addFields(
-           {
-                name: `> Old name`,
-                value: `- ${oldChannel.name}`
-            },
-            {
-                name: `> New name`,
-                value: `- ${newChannel.name}`
-            },
-            {
-                name: `> ID`,
-                value: `- ${newChannel.id}`
-            },
-            {
-                name: `> Category`,
-                value: `${newChannel.parent}`
-            },
-            {
-                name: `> Channel`,
-                value: `<#${newChannel.id}>`
-            },
-            {
-                name: `> Type`,
-                value: `${types[newChannel.type]}`
-            }
+            { name: `> Name`,       value: `- ${channel.name}` },
+            { name: `> ID`,         value: `- ${channel.id}` },
+            { name: `> Category`,   value: `${channel.parent}` },
+            { name: `> Channel`,    value: `<#${channel.id}>` },
+            { name: `> Type`,       value: `${types[channel.type]}` }
         )
 
     // client.embed({
