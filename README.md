@@ -1,3 +1,7 @@
+> [!WARNING]
+> This repository is currently under active development and is **not yet ready for production or general use**. Features may be incomplete, unstable, or subject to change without notice.
+
+
 <!-- <p align="center">
   <a style="text-decoration:none">
     <img src="https://img.shields.io/badge/Petal-Website_(Soon)-F9B81F" alt="Petal Website" /></a>
