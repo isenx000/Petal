@@ -1,20 +1,16 @@
-// const {} = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
+const { channelTypes } = require('../../constants/channelType');
 
 module.exports = async (client, channel) => {
-    let types = {
-        10: "News Thread",
-        11: "Public Thread",
-        12: "Private Thread",
-    }
 
     const logsChannel = await client.getLogs(channel.guild.id);
     if (!logsChannel) return;
 
-    client.embed({
-        title: `📖・Thread deleted`,
-        desc: `A thread has been deleted`,
-        fields: [
-            {
+    const embed = new EmbedBuilder()
+        .setTitle(`📖・Thread deleted`)
+        .setDescription(`A thread has been deleted`)
+        .addFields(
+                        {
                 name: `> Name`,
                 value: `- ${channel.name}`
             },
@@ -30,6 +26,13 @@ module.exports = async (client, channel) => {
                 name: `> Type`,
                 value: `${types[channel.type]}`
             }
-        ]
-    }, logsChannel).catch(() => { })
+        )
+
+    // client.embed({
+    //     title: ``,
+    //     desc: ``,
+    //     fields: [
+
+    //     ]
+    // }, logsChannel).catch(() => { })
 };

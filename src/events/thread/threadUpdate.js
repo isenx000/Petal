@@ -1,20 +1,16 @@
-// const {} = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
+const { channelTypes } = require('../../constants/channelType');
 
 module.exports = async (client, oldChannel, newChannel) => {
-    let types = {
-        10: "News Thread",
-        11: "Public Thread",
-        12: "Private Thread",
-    }
-
+    
     const logsChannel = await client.getLogs(newChannel.guild.id);
-    if (!logsChannel) return;
+    if (!logsChannel) return
 
-    client.embed({
-        title: `📖・Thread updated`,
-        desc: `A thread has been updated`,
-        fields: [
-            {
+    const embed = new EmbedBuilder()
+        .setTitle(`📖・Thread updated`)
+        .setDescription(`A thread has been updated`)
+        .addFields(
+           {
                 name: `> Old name`,
                 value: `- ${oldChannel.name}`
             },
@@ -38,6 +34,13 @@ module.exports = async (client, oldChannel, newChannel) => {
                 name: `> Type`,
                 value: `${types[newChannel.type]}`
             }
-        ]
-    }, logsChannel).catch(() => { })
+        )
+
+    // client.embed({
+    //     title: ``,
+    //     desc: ``,
+    //     fields: [
+ 
+    //     ]
+    // }, logsChannel).catch(() => { })
 };
