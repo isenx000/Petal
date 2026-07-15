@@ -1,4 +1,4 @@
-const {} = require('discord.js');
+// const {} = require('discord.js');
 
 module.exports = async (client, interaction, args) => {
     Schema.findOne({ Guild: interaction.guild.id, User: interaction.user.id }, async (err, data) => {

@@ -1,4 +1,4 @@
-const {} = require('discord.js');
+// const {} = require('discord.js');
 
 module.exports = (client, oldState, newState) => {
     if (oldState.channelId == newState.channelId) {

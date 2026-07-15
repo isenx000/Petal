@@ -1,4 +1,4 @@
-const {} = require('discord.js');
+// const {} = require('discord.js');
 
 module.exports = (client, giveaway, member, reaction) => {
     client.succNormal({

@@ -1,7 +1,7 @@
-const {} = require('discord.js');
-const { decode } = require('html-entities');
-const axios = require('axios');
-const cheerio = require('cheerio');
+// const {} = require('discord.js');
+// const { decode } = require('html-entities');
+// const axios = require('axios');
+// const cheerio = require('cheerio');
 
 module.exports = async (client, interaction, args) => {
     const getRandomString = (length) => {

@@ -1,5 +1,5 @@
-const fetch = require("node-fetch");
-const {} = require('discord.js');
+// const fetch = require("node-fetch");
+// const {} = require('discord.js');
 module.exports = async (client, interaction, args) => {
 
     fetch(`https://www.reddit.com/r/memes` + `.json?sort=top&t=week&limit=100`).then(res => res.json()).then(async (json) => {

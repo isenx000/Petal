@@ -1,4 +1,4 @@
-const {} = require('discord.js');
+// const {} = require('discord.js');
 
 module.exports = (client) => {
     client.templateEmbed = function () {

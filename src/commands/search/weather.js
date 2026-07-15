@@ -1,5 +1,5 @@
-const {} = require('discord.js');
-const weather = require('weather-js');
+// const {} = require('discord.js');
+// const weather = require('weather-js');
 
 module.exports = async (client, interaction, args) => {
     const country = interaction.options.getString('location');

@@ -1,6 +1,6 @@
 const slotItems = ["🍇", "🍉", "🍊", "🍎", "🍓", "🍒"];
-const {} = require('discord.js');
-const ms = require("parse-ms");
+// const {} = require('discord.js');
+// const ms = require("parse-ms");
 
 module.exports = async (client, interaction, args) => {
     let user = interaction.user;

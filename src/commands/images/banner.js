@@ -1,5 +1,5 @@
-const {} = require('discord.js');
-const axios = require("axios");
+// const {} = require('discord.js');
+// const axios = require("axios");
 
 module.exports = async (client, interaction, args) => {
   const user = interaction.options.getUser('user') || interaction.user;

@@ -1,5 +1,5 @@
-const {} = require('discord.js');
-const ms = require('ms');
+// const {} = require('discord.js');
+// const ms = require('ms');
 
 /**
  * 

@@ -1,5 +1,5 @@
-const {} = require('discord.js');
-const math = require('mathjs');
+// const {} = require('discord.js');
+// const math = require('mathjs');
 
 module.exports = async (client, interaction, args) => {
     const createButton = (label, disabled, getRandomString) => {

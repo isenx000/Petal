@@ -1,5 +1,5 @@
 
-const isHexcolor = require('is-hexcolor');
+// const isHexcolor = require('is-hexcolor');
 
 module.exports = async (client, interaction, args) => {
 

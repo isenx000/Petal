@@ -1,29 +1,27 @@
-const {} = require('discord.js');
-const chalk = require('chalk');
-const { random } = require('mathjs');
+const { EmbedBuilder, ActivityType, WebhookClient } = require('discord.js');
+const config = require('../../config/bot')
+
+const { colors } = config.colors;
 
 module.exports = async (client) => {
-    const startLogs = new Discord.WebhookClient({
+    const startLogs = new WebhookClient({
         id: client.webhooks.startLogs.id,
         token: client.webhooks.startLogs.token,
     });
+    
+    console.log(`System: Shard #${client.shard.ids[0] + 1} is ready!`)
+    console.log(`Bot: Started on ${client.guilds.cache.size} servers!`)
 
-    console.log(`\u001b[0m`);
-    console.log(chalk.blue(chalk.bold(`System`)), (chalk.white(`>>`)), chalk.red(`Shard #${client.shard.ids[0] + 1}`), chalk.green(`is ready!`))
-    console.log(chalk.blue(chalk.bold(`Bot`)), (chalk.white(`>>`)), chalk.green(`Started on`), chalk.red(`${client.guilds.cache.size}`), chalk.green(`servers!`))
-
-    let embed = new Discord.EmbedBuilder()
+    let embed = new EmbedBuilder()
         .setTitle(`🆙・Finishing shard`)
         .setDescription(`A shard just finished`)
         .addFields(
             { name: "🆔┆ID", value: `${client.shard.ids[0] + 1}/${client.options.shardCount}`, inline: true },
             { name: "📃┆State", value: `Ready`, inline: true },
         )
-        .setColor(client.config.colors.normal)
-    startLogs.send({
-        username: 'Bot Logs',
-        embeds: [embed],
-    });
+        .setColor(colors.normal)
+    
+    startLogs.send({ username: 'Bot Logs', embeds: [embed] });
 
     setInterval(async function () {
         const promises = [
@@ -32,23 +30,17 @@ module.exports = async (client) => {
         return Promise.all(promises)
             .then(results => {
                 const totalGuilds = results[0].reduce((acc, guildCount) => acc + guildCount, 0);
-                let statuttext;
-                if (process.env.DISCORD_STATUS) {
-                    statuttext = process.env.DISCORD_STATUS.split(', ');
-                } else {
-                    statuttext = [
+
+                const statuttext = [
                         `・❓┆/help`,
                         `・💻┆${totalGuilds} servers`,
                         `・📨┆discord.gg/corwindev`,
                         `・🎉┆400+ commands`,
                         `・🏷️┆Version ${require(`${process.cwd()}/package.json`).version}`
                     ];
-                }
                 const randomText = statuttext[Math.floor(Math.random() * statuttext.length)];
-                client.user.setPresence({ activities: [{ name: randomText, type: Discord.ActivityType.Playing }], status: 'online' });
+                client.user.setPresence({ activities: [{ name: randomText, type: ActivityType.Playing }], status: 'online' });
             })
     }, 50000)
-
-    client.player.init(client.user.id);
 }
 

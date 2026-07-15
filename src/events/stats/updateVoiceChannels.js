@@ -1,4 +1,4 @@
-const {} = require('discord.js');
+// const {} = require('discord.js');
 
 module.exports = async (client, channel, guild) => {
     if (channel.type ==  Discord.ChannelType.GuildVoice) {

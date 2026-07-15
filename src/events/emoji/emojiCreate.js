@@ -1,4 +1,4 @@
-const {} = require('discord.js');
+// const {} = require('discord.js');
 
 module.exports = async (client, emoji) => {
     const logsChannel = await client.getLogs(emoji.guild.id);

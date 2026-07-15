@@ -1,9 +1,9 @@
-const {} = require('discord.js');
-const jsdom = require('jsdom');
-const fs = require('fs');
-const purify = require('dompurify');
-const he = require('he');
-const static = require('../../assets/utils/static');
+// const {} = require('discord.js');
+// const jsdom = require('jsdom');
+// const fs = require('fs');
+// const purify = require('dompurify');
+// const he = require('he');
+// const static = require('../../assets/utils/static');
 
 module.exports = async (client) => {
 

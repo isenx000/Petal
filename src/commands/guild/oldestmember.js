@@ -1,4 +1,4 @@
-const {} = require('discord.js');
+// const {} = require('discord.js');
 
 module.exports = async (client, interaction, args) => {
   const members = await interaction.guild.members.fetch()

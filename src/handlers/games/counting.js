@@ -1,6 +1,6 @@
-const {} = require("discord.js");
+// const {} = require("discord.js");
 
-const math = require('mathjs');
+// const math = require('mathjs');
 
 module.exports = async (client) => {
   client

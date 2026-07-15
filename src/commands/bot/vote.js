@@ -1,7 +1,7 @@
-const {} = require('discord.js');
-const Topgg = require(`@top-gg/sdk`);
-const moment = require("moment");
-require("moment-duration-format");
+// const {} = require('discord.js');
+// const Topgg = require(`@top-gg/sdk`);
+// const moment = require("moment");
+// require("moment-duration-format");
 
 module.exports = async (client, interaction, args) => {
     let dbl = new Topgg.Api(process.env.TOPGG_TOKEN)

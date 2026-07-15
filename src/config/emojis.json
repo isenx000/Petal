@@ -35,15 +35,6 @@
         "bank": "🏦",
         "coins": "💰"
     },
-
-    "music": {
-        "next": "⏭️",
-        "pause": "⏸️",
-        "previous": "⏮️",
-        "stop": "⏹️",
-        "play": "▶️"
-    },
-
     "badges": {
         "bot": "🤖",
         "management": "👑",

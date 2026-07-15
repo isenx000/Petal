@@ -1,4 +1,4 @@
-const {} = require('discord.js');
+// const {} = require('discord.js');
 
 module.exports = async (client, interaction, args) => {
     const reason = interaction.options.getString('reason') || `Not specified`;

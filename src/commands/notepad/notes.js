@@ -1,5 +1,5 @@
-const {} = require('discord.js');
-const generator = require('generate-password');
+// const {} = require('discord.js');
+// const generator = require('generate-password');
 
 module.exports = async (client, interaction, args) => {
     const rawboard = await Schema.find({ Guild: interaction.guild.id, User: interaction.user.id })

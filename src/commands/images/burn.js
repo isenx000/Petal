@@ -1,5 +1,5 @@
-const {} = require('discord.js');
-const { Canvas } = require("canvacord");
+// const {} = require('discord.js');
+// const { Canvas } = require("canvacord");
 
 module.exports = async (client, interaction, args) => {
 

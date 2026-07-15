@@ -1,6 +1,6 @@
-const {} = require('discord.js');
-const chalk = require('chalk');
-const fs = require('fs');
+// const {} = require('discord.js');
+// const chalk = require('chalk');
+// const fs = require('fs');
 
 module.exports = (client) => {
 

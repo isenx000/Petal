@@ -1,4 +1,4 @@
-const {} = require('discord.js');
+// const {} = require('discord.js');
 const pop = require("popcat-wrapper");
 
 module.exports = async (client, interaction, args) => {

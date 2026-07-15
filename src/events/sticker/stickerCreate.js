@@ -1,4 +1,4 @@
-const {} = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 
 module.exports = async (client, sticker) => {
     const logsChannel = await client.getLogs(sticker.guild.id);

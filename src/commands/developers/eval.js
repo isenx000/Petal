@@ -1,6 +1,6 @@
-const {} = require('discord.js');
+// const {} = require('discord.js');
 
-const { inspect } = require('util');
+// const { inspect } = require('util');
 
 module.exports = async (client, interaction, args) => {
     const webhookClientLogs = new Discord.WebhookClient({

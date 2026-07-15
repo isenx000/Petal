@@ -1,4 +1,4 @@
-const {} = require('discord.js');
+// const {} = require('discord.js');
 
 module.exports = async (client, interaction, args) => {
     let id = interaction.options.getString('id');

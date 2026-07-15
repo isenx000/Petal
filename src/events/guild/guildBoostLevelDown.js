@@ -1,4 +1,4 @@
-const {} = require('discord.js');
+// const {} = require('discord.js');
 
 module.exports = async (client, guild, oldLevel, newLevel) => {
     const logsChannel = await client.getLogs(guild.id);

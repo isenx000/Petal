@@ -1,5 +1,5 @@
-const {} = require('discord.js');
-const Canvacord = require("canvacord");
+// const {} = require('discord.js');
+// const Canvacord = require("canvacord");
 
 module.exports = async (client, interaction, args) => {
     const data = await Functions.findOne({ Guild: interaction.guild.id });

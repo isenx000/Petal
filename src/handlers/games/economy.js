@@ -1,4 +1,4 @@
-const {} = require('discord.js');
+// const {} = require('discord.js');
 
 module.exports = async (client) => {
     client.addMoney = async function (interaction, user, amount) {

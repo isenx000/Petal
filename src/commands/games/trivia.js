@@ -1,6 +1,6 @@
-const {} = require('discord.js');
-const fetch = require("node-fetch");
-const { decode } = require('html-entities');
+// const {} = require('discord.js');
+// const fetch = require("node-fetch");
+// const { decode } = require('html-entities');
 
 module.exports = async (client, interaction, args) => {
     const getRandomString = (length) => {

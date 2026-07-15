@@ -1,4 +1,4 @@
-const {} = require('discord.js');
+// const {} = require('discord.js');
 
 module.exports = async (client, member, invite, inviter) => {
     const messageData = await messages.findOne({ Guild: member.guild.id });

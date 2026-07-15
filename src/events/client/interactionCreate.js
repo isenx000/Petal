@@ -1,5 +1,5 @@
-const {} = require('discord.js');
-const Captcha = require("@haileybot/captcha-generator");
+// const {} = require('discord.js');
+// const Captcha = require("@haileybot/captcha-generator");
 
 module.exports = async (client, interaction) => {
     // Commands

@@ -1,5 +1,5 @@
-const {} = require('discord.js');
-const fetch = require("node-fetch");
+// const {} = require('discord.js');
+// const fetch = require("node-fetch");
 
 module.exports = async (client, interaction, args) => {
 

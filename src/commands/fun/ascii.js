@@ -1,5 +1,5 @@
-const {} = require('discord.js');
-const figlet = require('figlet');
+// const {} = require('discord.js');
+// const figlet = require('figlet');
 
 module.exports = async (client, interaction, args) => {
     const msg = interaction.options.getString('text');

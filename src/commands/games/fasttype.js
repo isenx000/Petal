@@ -1,5 +1,5 @@
-const {} = require('discord.js');
-const ms = require('ms');
+// const {} = require('discord.js');
+// const ms = require('ms');
 
 let timeLength = 50000;
 module.exports = async (client, interaction, args) => {

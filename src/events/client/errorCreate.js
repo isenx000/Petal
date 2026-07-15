@@ -1,5 +1,5 @@
-const {} = require('discord.js');
-const generator = require('generate-password');
+// const {} = require('discord.js');
+// const generator = require('generate-password');
 
 module.exports = (client, err, command, interaction) => {
     console.log(err);

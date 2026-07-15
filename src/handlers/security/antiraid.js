@@ -1,7 +1,7 @@
-const {} = require("discord.js");
+const { Events } = require('discord.js');
 
 module.exports = (client) => {
-    client.on(Discord.Events.MessageCreate, async (message) => {
+    client.on(Events.MessageCreate, async (message) => {
         if (message.channel.type === Discord.ChannelType.DM || message.author.bot) return;
         Schema.findOne({ Guild: message.guild.id }, async (err, data) => {
             if (data) {
