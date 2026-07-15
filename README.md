@@ -23,3 +23,24 @@ Petal is an updated version of [Discord-bot](https://github.com/CorwinDev/Discor
 **Please do not claim this project as your own.** Petal is a fork of the original project created by [Dotwood Media](https://github.com/DotwoodMedia) and [Graphix Development](https://github.com/GraphixDevelopment), later maintained by [Corwin Dev](https://github.com/CorwinDev). This fork is independently modified, updated, and maintained by **Isen**, with full credit to the original creators.
 
 This project is not intended to go beyond the scope of the original fork and may instead remove or simplify certain features, such as music-related functionality, to better align with its goals.
+
+## Installation
+
+1. Clone the repository.
+
+   ```bash
+   git clone https://github.com/isenx000/Petal.git
+   cd Discord-Bot
+   ```
+
+2. Install the dependencies.
+
+   ```bash
+   npm install
+   ```
+
+> [!IMPORTANT]
+> Before running the project, create and configure your `.env` file. Use `.env.example` as a template for the required environment variables.
+
+![Node.js](https://img.shields.io/badge/Node.js-22.12.0-339933?logo=node.js\&logoColor=white)
+![discord.js](https://img.shields.io/badge/discord.js-14.22.1-5865F2?logo=discord\&logoColor=white)
